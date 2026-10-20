@@ -77,6 +77,11 @@ public class CheckoutTestCase extends DemoWebShopBaseClass {
         hp.clickShoppingCart();
 
         ShoppingCartPage cart = new ShoppingCartPage(driver);
+//        while (!cart.isCartEmpty()) {
+//            cart.selectRemoveProduct();
+//            cart.clickUpdateCart();
+//            Thread.sleep(1000);
+//        }
 
         if (!cart.isCartDisplayed()) {
             ProductUtility pu = new ProductUtility(driver);
