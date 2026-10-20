@@ -81,6 +81,7 @@ public class ProductPage {
     }
 
     public void enterSenderName(String name) {
+    	senderName.clear();
         senderName.sendKeys(name);
     }
 

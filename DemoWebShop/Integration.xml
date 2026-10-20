@@ -8,13 +8,13 @@
             </run>
         </groups>
     <classes>
-      <class name="Ecom.DemoWebShop.Register.Register_TestCase"/>
-      <class name="Ecom.DemoWebShop.Home.Home_TestCase"/>
-      <class name="Ecom.DemoWebShop.GiftCards.GiftCards_TestCase"/>
-      <class name="Ecom.DemoWebShop.ShoppingCart.ShoppingCart"/>
-      <class name="Ecom.DemoWebShop.Login.Login_TestCase"/>
-      <class name="Ecom.DemoWebShop.Checkout.Checkout_TestCase"/>
-      <class name="Ecom.DemoWebShop.Wishlist.Wishlist_TestCase"/>
+      <class name="Ecom.DemoWebShop.Home.HomeTestCase"/>
+      <class name="Ecom.DemoWebShop.Register.RegisterTestCase"/>
+      <class name="Ecom.DemoWebShop.Login.LoginTestCase"/>
+      <class name="Ecom.DemoWebShop.GiftCards.GiftCardsTestCase"/>
+      <class name="Ecom.DemoWebShop.ShoppingCart.ShoppingCartTestCase"/>
+      <class name="Ecom.DemoWebShop.Checkout.CheckoutTestCase"/>
+      <class name="Ecom.DemoWebShop.Wishlist.WishlistTestCase"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

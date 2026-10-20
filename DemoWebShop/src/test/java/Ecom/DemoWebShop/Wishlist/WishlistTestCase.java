@@ -20,8 +20,8 @@ public class WishlistTestCase extends DemoWebShopBaseClass {
     FileUtility fuTest = new FileUtility();
 
     private void performLogin() throws Exception {
-        String email = fuTest.getDataFromPropertyFile("username");
-        String password = fuTest.getDataFromPropertyFile("password");
+        String email = fuTest.getDataFromPropertyFile("username3");
+        String password = fuTest.getDataFromPropertyFile("password3");
         loginToApplication(email, password);
     }
 

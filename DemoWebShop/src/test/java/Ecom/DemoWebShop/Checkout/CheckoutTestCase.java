@@ -23,8 +23,8 @@ public class CheckoutTestCase extends DemoWebShopBaseClass {
     FileUtility fuTest = new FileUtility();
 
     private void performLogin() throws Exception {
-        String email = fuTest.getDataFromPropertyFile("username");
-        String password = fuTest.getDataFromPropertyFile("password");
+        String email = fuTest.getDataFromPropertyFile("username1");
+        String password = fuTest.getDataFromPropertyFile("password1");
         loginToApplication(email, password);
     }
 
@@ -110,7 +110,9 @@ public class CheckoutTestCase extends DemoWebShopBaseClass {
 
         CheckoutPage checkout = openCheckout();
         Thread.sleep(2000);
-        checkout.selectBillingAddress("New Address");
+        if (checkout.isBillingAddressDropdownDisplayed()) {
+            checkout.selectBillingAddress("New Address");
+        }
 
         Assert.assertTrue(checkout.isBillingFirstNameDisplayed(), "Billing First Name is not displayed");
         Assert.assertTrue(checkout.isBillingLastNameDisplayed(), "Billing Last Name is not displayed");
@@ -355,7 +357,10 @@ public class CheckoutTestCase extends DemoWebShopBaseClass {
 
         CheckoutPage checkout = openCheckout();
 
-        checkout.selectBillingAddress("New Address");
+        if (checkout.isBillingAddressDropdownDisplayed()) {
+            checkout.selectBillingAddress("New Address");
+        }
+        
 
         Thread.sleep(2000);
 
@@ -432,7 +437,9 @@ public class CheckoutTestCase extends DemoWebShopBaseClass {
 
         CheckoutPage checkout = openCheckout();
 
-        checkout.selectBillingAddress("New Address");
+        if (checkout.isBillingAddressDropdownDisplayed()) {
+            checkout.selectBillingAddress("New Address");
+        }
         enterBillingAddress(checkout, data);
         checkout.clickBillingContinue();
 
@@ -443,7 +450,7 @@ public class CheckoutTestCase extends DemoWebShopBaseClass {
         Assert.assertEquals(actualMessage.trim(), "Wrong email", "Invalid email validation message mismatch");
     }
 
-    // TC-CH-10 - Verify Billing Address text fields using boundary values - BVA
+ // TC-CH-10 - Verify Billing Address text fields using boundary values - BVA
     @DataProvider(name = "TC_CH_10_Data")
     public Object[][] tcCH10Data() throws EncryptedDocumentException, IOException {
         return eu.getDataByTestCaseId("Checkout_Data", "TC-CH-10", 25);
@@ -453,9 +460,27 @@ public class CheckoutTestCase extends DemoWebShopBaseClass {
     public void verifyBillingBoundaryValues(Object[] data) throws Exception {
         performLogin();
 
+        HomePage hp = new HomePage(driver);
+        hp.clickShoppingCart();
+
+        ShoppingCartPage cart = new ShoppingCartPage(driver);
+
+        if (!cart.isCartDisplayed()) {
+            ProductUtility pu = new ProductUtility(driver);
+            pu.addProductFromProductData("PRODUCT-01");
+
+            hp = new HomePage(driver);
+            hp.clickShoppingCart();
+            cart = new ShoppingCartPage(driver);
+        }
+
+        String productName = cart.getProductName();
+
         CheckoutPage checkout = openCheckout();
         Thread.sleep(2000);
-        checkout.selectBillingAddress("New Address");
+        if (checkout.isBillingAddressDropdownDisplayed()) {
+            checkout.selectBillingAddress("New Address");
+        }
 
         Thread.sleep(1000);
 
@@ -466,12 +491,27 @@ public class CheckoutTestCase extends DemoWebShopBaseClass {
 
         String boundaryType = data[1].toString();
 
-        if (boundaryType.equalsIgnoreCase("Boundary-Min")) {
-            Assert.assertFalse(checkout.isBillingFirstNameDisplayed(), "Minimum boundary values were rejected by the application");
-        } else if (boundaryType.equalsIgnoreCase("Boundary-Max")) {
-            Assert.assertTrue(checkout.isBillingFirstNameDisplayed(), "Maximum boundary values were rejected by the application");
-        } else if (boundaryType.equalsIgnoreCase("Boundary-Outside")) {
-            Assert.assertTrue(checkout.isBillingFirstNameDisplayed(), "Boundary-outside dataset did not behave as expected");
+        if (productName.contains("Virtual Gift Card")) {
+
+            if (boundaryType.equalsIgnoreCase("Boundary-Min")) {
+                Assert.assertTrue(checkout.isCashOnDeliveryDisplayed(), "Minimum boundary values were rejected for Virtual Gift Card");
+            } else if (boundaryType.equalsIgnoreCase("Boundary-Max")) {
+                Assert.assertTrue(checkout.isCashOnDeliveryDisplayed(), "Maximum boundary values were rejected for Virtual Gift Card");
+            } else if (boundaryType.equalsIgnoreCase("Boundary-Outside")) {
+                Assert.assertTrue(checkout.isBillingFirstNameDisplayed(), "Boundary-outside dataset did not behave as expected for Virtual Gift Card");
+            }
+
+        }  else if (productName.contains("Physical Gift Card")) {
+
+            if (boundaryType.equalsIgnoreCase("Boundary-Min")) {
+                checkout.selectShippingAddress("New Address");
+                Assert.assertTrue(checkout.isShippingFirstNameDisplayed(), "Minimum boundary values were rejected for Physical Gift Card");
+            } else if (boundaryType.equalsIgnoreCase("Boundary-Max")) {
+                checkout.selectShippingAddress("New Address");
+                Assert.assertTrue(checkout.isShippingFirstNameDisplayed(), "Maximum boundary values were rejected for Physical Gift Card");
+            } else if (boundaryType.equalsIgnoreCase("Boundary-Outside")) {
+                Assert.assertTrue(checkout.isBillingFirstNameDisplayed(), "Boundary-outside dataset was not rejected for Physical Gift Card");
+            }
         }
     }
 
@@ -489,7 +529,9 @@ public class CheckoutTestCase extends DemoWebShopBaseClass {
 
         CheckoutPage checkout = openCheckout();
 
-        checkout.selectBillingAddress("New Address");
+if (checkout.isBillingAddressDropdownDisplayed()) {
+    checkout.selectBillingAddress("New Address");
+}
 
         // Boundary logic can be implemented after
         // exact Zip/Phone limits are confirmed.

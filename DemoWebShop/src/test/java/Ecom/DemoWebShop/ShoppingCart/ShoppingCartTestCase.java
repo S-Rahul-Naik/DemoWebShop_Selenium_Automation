@@ -31,7 +31,7 @@ public class ShoppingCartTestCase extends DemoWebShopBaseClass {
             String quantity) throws Exception {
 
         FileUtility fu = new FileUtility();
-        loginToApplication(fu.getDataFromPropertyFile("username"), fu.getDataFromPropertyFile("password"));
+        loginToApplication(fu.getDataFromPropertyFile("username2"), fu.getDataFromPropertyFile("password2"));
 
         HomePage home = new HomePage(driver);
         home.clickShoppingCart();
