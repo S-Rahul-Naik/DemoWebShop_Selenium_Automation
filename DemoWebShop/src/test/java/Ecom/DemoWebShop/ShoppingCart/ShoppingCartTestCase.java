@@ -36,14 +36,13 @@ public class ShoppingCartTestCase extends DemoWebShopBaseClass {
         HomePage home = new HomePage(driver);
         Thread.sleep(1000);
         home.clickShoppingCart();
-        Thread.sleep(1000);
 
         ShoppingCartPage cart = new ShoppingCartPage(driver);
 
         while (!cart.isCartEmpty()) {
             cart.selectRemoveProduct();
             cart.clickUpdateCart();
-            Thread.sleep(1000);
+
         }
 
         home = new HomePage(driver);
@@ -57,8 +56,6 @@ public class ShoppingCartTestCase extends DemoWebShopBaseClass {
 
         // Product page
         ProductPage product = new ProductPage(driver);
-        Thread.sleep(2000);
-
         // Gift card details
         product.enterRecipientName(recipientName);
         product.enterSenderName(senderName);
@@ -68,16 +65,14 @@ public class ShoppingCartTestCase extends DemoWebShopBaseClass {
         if (productType.equalsIgnoreCase("Virtual")) {
             product.enterRecipientEmail(recipientEmail);
             //product.enterSenderEmail(senderEmail);
-            Thread.sleep(2000);
         }
 
         // Quantity
         product.enterQuantity(quantity);
-        Thread.sleep(2000);
 
         // Add to cart
         product.clickAddToCart();
-        Thread.sleep(2000);
+
 
         // Open shopping cart
         home.clickShoppingCart();
@@ -556,6 +551,7 @@ public class ShoppingCartTestCase extends DemoWebShopBaseClass {
 
         Assert.assertTrue(cart.isCartDisplayed(), "Shopping Cart is not displayed");
         Assert.assertFalse(cart.getProductName().isEmpty(), "Product details are not displayed");
+        Thread.sleep(1000);
         Assert.assertEquals(cart.getQuantity(), quantity, "Quantity is incorrect");
         Assert.assertFalse(cart.getProductSubtotal().isEmpty(), "Subtotal is not displayed");
         Assert.assertFalse(cart.getOrderTotal().isEmpty(), "Order total is not displayed");
@@ -634,7 +630,7 @@ public class ShoppingCartTestCase extends DemoWebShopBaseClass {
 
         cart.clickCheckout();
 
-        Assert.assertFalse(driver.getCurrentUrl().contains("/cart"), "User was not transferred to Checkout");
+        Assert.assertTrue(driver.getCurrentUrl().contains("/onepagecheckout"),"User was not transferred to Checkout");
     }
 
     // TC-CART-15 - Verify complete Shopping Cart workflow - System
@@ -688,6 +684,6 @@ public class ShoppingCartTestCase extends DemoWebShopBaseClass {
         // Checkout
         cart.clickCheckout();
 
-        Assert.assertFalse(driver.getCurrentUrl().contains("/cart"), "Checkout was not initiated");
+        Assert.assertTrue(driver.getCurrentUrl().contains("/onepagecheckout"),"Checkout was not initiated");
     }
 }

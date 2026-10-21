@@ -106,14 +106,9 @@ public class HomePage {
 
     public void searchProduct(String productName)
             throws InterruptedException {
-
         wait.until(ExpectedConditions.visibilityOf(searchBox));
-
         searchBox.clear();
         searchBox.sendKeys(productName);
-
-        Thread.sleep(2000);
-
         wait.until(ExpectedConditions.elementToBeClickable(searchButton)).click();
     }
 

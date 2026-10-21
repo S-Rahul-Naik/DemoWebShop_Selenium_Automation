@@ -11,29 +11,29 @@
       <![CDATA[Before Method]]>
     </line>
   </reporter-output>
-  <suite started-at="2026-10-21T23:54:40 IST" name="Default suite" finished-at="2026-10-21T23:55:21 IST" duration-ms="41661">
+  <suite started-at="2026-10-22T00:21:59 IST" name="Default suite" finished-at="2026-10-22T00:22:40 IST" duration-ms="40552">
     <groups>
-      <group name="Functional">
-        <method signature="ShoppingCartTestCase.verifyCartTotalsAfterQuantityChange(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:Ecom.DemoWebShop.ShoppingCart.ShoppingCartTestCase@3eb738bb]" name="verifyCartTotalsAfterQuantityChange" class="Ecom.DemoWebShop.ShoppingCart.ShoppingCartTestCase"/>
-      </group> <!-- Functional -->
+      <group name="Smoke">
+        <method signature="ShoppingCartTestCase.verifyBasicShoppingCartFunctionality(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:Ecom.DemoWebShop.ShoppingCart.ShoppingCartTestCase@3eb738bb]" name="verifyBasicShoppingCartFunctionality" class="Ecom.DemoWebShop.ShoppingCart.ShoppingCartTestCase"/>
+      </group> <!-- Smoke -->
     </groups>
-    <test started-at="2026-10-21T23:54:40 IST" name="Default test" finished-at="2026-10-21T23:55:21 IST" duration-ms="41661">
+    <test started-at="2026-10-22T00:21:59 IST" name="Default test" finished-at="2026-10-22T00:22:40 IST" duration-ms="40552">
       <class name="Ecom.DemoWebShop.ShoppingCart.ShoppingCartTestCase">
-        <test-method is-config="true" signature="dbConnection()[pri:0, instance:Ecom.DemoWebShop.ShoppingCart.ShoppingCartTestCase@3eb738bb]" started-at="2026-10-21T23:54:40 IST" name="dbConnection" finished-at="2026-10-21T23:54:40 IST" duration-ms="13" status="PASS">
+        <test-method is-config="true" signature="dbConnection()[pri:0, instance:Ecom.DemoWebShop.ShoppingCart.ShoppingCartTestCase@3eb738bb]" started-at="2026-10-22T00:21:59 IST" name="dbConnection" finished-at="2026-10-22T00:21:59 IST" duration-ms="12" status="PASS">
           <reporter-output>
             <line>
               <![CDATA[Before Suite]]>
             </line>
           </reporter-output>
         </test-method> <!-- dbConnection -->
-        <test-method is-config="true" signature="bt()[pri:0, instance:Ecom.DemoWebShop.ShoppingCart.ShoppingCartTestCase@3eb738bb]" started-at="2026-10-21T23:54:40 IST" name="bt" finished-at="2026-10-21T23:54:40 IST" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="bt()[pri:0, instance:Ecom.DemoWebShop.ShoppingCart.ShoppingCartTestCase@3eb738bb]" started-at="2026-10-22T00:21:59 IST" name="bt" finished-at="2026-10-22T00:21:59 IST" duration-ms="1" status="PASS">
           <reporter-output>
             <line>
               <![CDATA[Before Test]]>
             </line>
           </reporter-output>
         </test-method> <!-- bt -->
-        <test-method is-config="true" signature="navigateToApp(java.lang.String)[pri:0, instance:Ecom.DemoWebShop.ShoppingCart.ShoppingCartTestCase@3eb738bb]" started-at="2026-10-21T23:54:40 IST" name="navigateToApp" finished-at="2026-10-21T23:54:45 IST" duration-ms="4400" status="PASS">
+        <test-method is-config="true" signature="navigateToApp(java.lang.String)[pri:0, instance:Ecom.DemoWebShop.ShoppingCart.ShoppingCartTestCase@3eb738bb]" started-at="2026-10-22T00:22:00 IST" name="navigateToApp" finished-at="2026-10-22T00:22:05 IST" duration-ms="4866" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -47,16 +47,16 @@
             </line>
           </reporter-output>
         </test-method> <!-- navigateToApp -->
-        <test-method signature="verifyCartTotalsAfterQuantityChange(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:Ecom.DemoWebShop.ShoppingCart.ShoppingCartTestCase@3eb738bb]" started-at="2026-10-21T23:54:45 IST" name="verifyCartTotalsAfterQuantityChange" data-provider="cart09Data" finished-at="2026-10-21T23:55:21 IST" duration-ms="36180" status="PASS">
+        <test-method signature="verifyBasicShoppingCartFunctionality(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:Ecom.DemoWebShop.ShoppingCart.ShoppingCartTestCase@3eb738bb]" started-at="2026-10-22T00:22:05 IST" name="verifyBasicShoppingCartFunctionality" data-provider="cart12Data" finished-at="2026-10-22T00:22:39 IST" duration-ms="34650" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[TC-CART-09]]>
+                <![CDATA[TC-CART-12]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA[TotalsUpdate]]>
+                <![CDATA[Smoke]]>
               </value>
             </param>
             <param index="2">
@@ -66,7 +66,7 @@
             </param>
             <param index="3">
               <value>
-                <![CDATA[2]]>
+                <![CDATA[1]]>
               </value>
             </param>
             <param index="4">
@@ -102,8 +102,8 @@
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verifyCartTotalsAfterQuantityChange -->
-        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:Ecom.DemoWebShop.ShoppingCart.ShoppingCartTestCase@3eb738bb]" started-at="2026-10-21T23:55:21 IST" name="closeBrowser" finished-at="2026-10-21T23:55:21 IST" duration-ms="268" status="PASS">
+        </test-method> <!-- verifyBasicShoppingCartFunctionality -->
+        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:Ecom.DemoWebShop.ShoppingCart.ShoppingCartTestCase@3eb738bb]" started-at="2026-10-22T00:22:39 IST" name="closeBrowser" finished-at="2026-10-22T00:22:40 IST" duration-ms="257" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- closeBrowser -->
