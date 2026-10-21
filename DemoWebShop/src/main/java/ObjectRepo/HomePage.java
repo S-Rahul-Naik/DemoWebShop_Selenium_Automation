@@ -3,6 +3,7 @@ package ObjectRepo;
 import java.time.Duration;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -117,26 +118,23 @@ public class HomePage {
     // SEARCH RESULT VERIFICATION
     // ============================================================
 
-    public boolean isProductDisplayedInSearchResults(
-            String productName) {
+    public boolean isProductDisplayedInSearchResults(String productName) {
 
         By productLocator =
-                By.xpath(
-                        "//h2[@class='product-title']/a[normalize-space()='"
-                        + productName
-                        + "']"
-                );
-
-        WebElement product =
-                wait.until(
-                        ExpectedConditions.visibilityOfElementLocated(
-                                productLocator
-                        )
-                );
-
-        return product.isDisplayed();
+                By.xpath("//h2[@class='product-title']/a[normalize-space()='"
+                        + productName + "']");
+        try {
+            WebElement product =
+                    wait.until(
+                            ExpectedConditions.visibilityOfElementLocated(
+                                    productLocator
+                            )
+                    );
+            return product.isDisplayed();
+        } catch (TimeoutException e) {
+            return false;
+        }
     }
-
 
     // ============================================================
     // SEARCH RESULT PRODUCT

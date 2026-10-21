@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+<testng-results ignored="0" total="10" passed="10" failed="0" skipped="0">
   <reporter-output>
     <line>
       <![CDATA[Before Suite]]>
@@ -10,30 +10,55 @@
     <line>
       <![CDATA[Before Method]]>
     </line>
+    <line>
+      <![CDATA[Before Method]]>
+    </line>
+    <line>
+      <![CDATA[Before Method]]>
+    </line>
+    <line>
+      <![CDATA[Before Method]]>
+    </line>
+    <line>
+      <![CDATA[Before Method]]>
+    </line>
+    <line>
+      <![CDATA[Before Method]]>
+    </line>
+    <line>
+      <![CDATA[Before Method]]>
+    </line>
+    <line>
+      <![CDATA[Before Method]]>
+    </line>
+    <line>
+      <![CDATA[Before Method]]>
+    </line>
+    <line>
+      <![CDATA[Before Method]]>
+    </line>
   </reporter-output>
-  <suite started-at="2026-10-22T00:21:59 IST" name="Default suite" finished-at="2026-10-22T00:22:40 IST" duration-ms="40552">
+  <suite started-at="2026-10-22T00:48:46 IST" name="DemoWebShop System Suite" finished-at="2026-10-22T00:51:55 IST" duration-ms="188847">
     <groups>
-      <group name="Smoke">
-        <method signature="ShoppingCartTestCase.verifyBasicShoppingCartFunctionality(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:Ecom.DemoWebShop.ShoppingCart.ShoppingCartTestCase@3eb738bb]" name="verifyBasicShoppingCartFunctionality" class="Ecom.DemoWebShop.ShoppingCart.ShoppingCartTestCase"/>
-      </group> <!-- Smoke -->
+      <group name="Functional">
+        <method signature="LoginTestCase.verifyValidLogin(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:Ecom.DemoWebShop.Login.LoginTestCase@762ef0ea]" name="verifyValidLogin" class="Ecom.DemoWebShop.Login.LoginTestCase"/>
+        <method signature="RegisterTestCase.verifyValidRegistration(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:Ecom.DemoWebShop.Register.RegisterTestCase@2d2ffcb7]" name="verifyValidRegistration" class="Ecom.DemoWebShop.Register.RegisterTestCase"/>
+      </group> <!-- Functional -->
+      <group name="System">
+        <method signature="GiftCardsTestCase.verifyCompleteGiftCardWorkflow(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:Ecom.DemoWebShop.GiftCards.GiftCardsTestCase@31f9b85e]" name="verifyCompleteGiftCardWorkflow" class="Ecom.DemoWebShop.GiftCards.GiftCardsTestCase"/>
+        <method signature="HomeTestCase.verifyHomePageCompleteProjectFlow(java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:Ecom.DemoWebShop.Home.HomeTestCase@58ea606c]" name="verifyHomePageCompleteProjectFlow" class="Ecom.DemoWebShop.Home.HomeTestCase"/>
+        <method signature="LoginTestCase.verifyCompleteLoginWorkflow(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:Ecom.DemoWebShop.Login.LoginTestCase@762ef0ea]" name="verifyCompleteLoginWorkflow" class="Ecom.DemoWebShop.Login.LoginTestCase"/>
+        <method signature="LoginTestCase.verifyValidLogin(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:Ecom.DemoWebShop.Login.LoginTestCase@762ef0ea]" name="verifyValidLogin" class="Ecom.DemoWebShop.Login.LoginTestCase"/>
+        <method signature="RegisterTestCase.verifyCompleteRegistrationWorkflow(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:Ecom.DemoWebShop.Register.RegisterTestCase@2d2ffcb7]" name="verifyCompleteRegistrationWorkflow" class="Ecom.DemoWebShop.Register.RegisterTestCase"/>
+        <method signature="RegisterTestCase.verifyValidRegistration(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:Ecom.DemoWebShop.Register.RegisterTestCase@2d2ffcb7]" name="verifyValidRegistration" class="Ecom.DemoWebShop.Register.RegisterTestCase"/>
+        <method signature="ShoppingCartTestCase.verifyCompleteShoppingCartWorkflow(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:Ecom.DemoWebShop.ShoppingCart.ShoppingCartTestCase@424e1977]" name="verifyCompleteShoppingCartWorkflow" class="Ecom.DemoWebShop.ShoppingCart.ShoppingCartTestCase"/>
+        <method signature="WishlistTestCase.verifyCompleteWishlistWorkflow(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:12, instance:Ecom.DemoWebShop.Wishlist.WishlistTestCase@117e949d]" name="verifyCompleteWishlistWorkflow" class="Ecom.DemoWebShop.Wishlist.WishlistTestCase"/>
+        <method signature="CheckoutTestCase.completeCheckout([Ljava.lang.Object;)[pri:15, instance:Ecom.DemoWebShop.Checkout.CheckoutTestCase@10d68fcd]" name="completeCheckout" class="Ecom.DemoWebShop.Checkout.CheckoutTestCase"/>
+      </group> <!-- System -->
     </groups>
-    <test started-at="2026-10-22T00:21:59 IST" name="Default test" finished-at="2026-10-22T00:22:40 IST" duration-ms="40552">
+    <test started-at="2026-10-22T00:48:46 IST" name="System Test Cases" finished-at="2026-10-22T00:51:55 IST" duration-ms="188847">
       <class name="Ecom.DemoWebShop.ShoppingCart.ShoppingCartTestCase">
-        <test-method is-config="true" signature="dbConnection()[pri:0, instance:Ecom.DemoWebShop.ShoppingCart.ShoppingCartTestCase@3eb738bb]" started-at="2026-10-22T00:21:59 IST" name="dbConnection" finished-at="2026-10-22T00:21:59 IST" duration-ms="12" status="PASS">
-          <reporter-output>
-            <line>
-              <![CDATA[Before Suite]]>
-            </line>
-          </reporter-output>
-        </test-method> <!-- dbConnection -->
-        <test-method is-config="true" signature="bt()[pri:0, instance:Ecom.DemoWebShop.ShoppingCart.ShoppingCartTestCase@3eb738bb]" started-at="2026-10-22T00:21:59 IST" name="bt" finished-at="2026-10-22T00:21:59 IST" duration-ms="1" status="PASS">
-          <reporter-output>
-            <line>
-              <![CDATA[Before Test]]>
-            </line>
-          </reporter-output>
-        </test-method> <!-- bt -->
-        <test-method is-config="true" signature="navigateToApp(java.lang.String)[pri:0, instance:Ecom.DemoWebShop.ShoppingCart.ShoppingCartTestCase@3eb738bb]" started-at="2026-10-22T00:22:00 IST" name="navigateToApp" finished-at="2026-10-22T00:22:05 IST" duration-ms="4866" status="PASS">
+        <test-method is-config="true" signature="navigateToApp(java.lang.String)[pri:0, instance:Ecom.DemoWebShop.ShoppingCart.ShoppingCartTestCase@424e1977]" started-at="2026-10-22T00:50:18 IST" name="navigateToApp" finished-at="2026-10-22T00:50:22 IST" duration-ms="4140" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -47,16 +72,16 @@
             </line>
           </reporter-output>
         </test-method> <!-- navigateToApp -->
-        <test-method signature="verifyBasicShoppingCartFunctionality(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:Ecom.DemoWebShop.ShoppingCart.ShoppingCartTestCase@3eb738bb]" started-at="2026-10-22T00:22:05 IST" name="verifyBasicShoppingCartFunctionality" data-provider="cart12Data" finished-at="2026-10-22T00:22:39 IST" duration-ms="34650" status="PASS">
+        <test-method signature="verifyCompleteShoppingCartWorkflow(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:Ecom.DemoWebShop.ShoppingCart.ShoppingCartTestCase@424e1977]" started-at="2026-10-22T00:50:22 IST" name="verifyCompleteShoppingCartWorkflow" data-provider="cart15Data" finished-at="2026-10-22T00:50:48 IST" duration-ms="25682" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[TC-CART-12]]>
+                <![CDATA[TC-CART-15]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA[Smoke]]>
+                <![CDATA[CompleteWorkflow]]>
               </value>
             </param>
             <param index="2">
@@ -66,7 +91,7 @@
             </param>
             <param index="3">
               <value>
-                <![CDATA[1]]>
+                <![CDATA[2]]>
               </value>
             </param>
             <param index="4">
@@ -102,12 +127,534 @@
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verifyBasicShoppingCartFunctionality -->
-        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:Ecom.DemoWebShop.ShoppingCart.ShoppingCartTestCase@3eb738bb]" started-at="2026-10-22T00:22:39 IST" name="closeBrowser" finished-at="2026-10-22T00:22:40 IST" duration-ms="257" status="PASS">
+        </test-method> <!-- verifyCompleteShoppingCartWorkflow -->
+        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:Ecom.DemoWebShop.ShoppingCart.ShoppingCartTestCase@424e1977]" started-at="2026-10-22T00:50:48 IST" name="closeBrowser" finished-at="2026-10-22T00:50:48 IST" duration-ms="221" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- closeBrowser -->
       </class> <!-- Ecom.DemoWebShop.ShoppingCart.ShoppingCartTestCase -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+      <class name="Ecom.DemoWebShop.GiftCards.GiftCardsTestCase">
+        <test-method is-config="true" signature="navigateToApp(java.lang.String)[pri:0, instance:Ecom.DemoWebShop.GiftCards.GiftCardsTestCase@31f9b85e]" started-at="2026-10-22T00:50:05 IST" name="navigateToApp" finished-at="2026-10-22T00:50:09 IST" duration-ms="4134" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[Before Method]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- navigateToApp -->
+        <test-method signature="verifyCompleteGiftCardWorkflow(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:Ecom.DemoWebShop.GiftCards.GiftCardsTestCase@31f9b85e]" started-at="2026-10-22T00:50:09 IST" name="verifyCompleteGiftCardWorkflow" data-provider="giftCardCompleteWorkflowData" finished-at="2026-10-22T00:50:18 IST" duration-ms="8132" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[TC-GC-12]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Complete-Workflow]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[1]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[$5 Virtual Gift Card]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[Virtual]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[]]>
+              </value>
+            </param>
+            <param index="7">
+              <value>
+                <![CDATA[]]>
+              </value>
+            </param>
+            <param index="8">
+              <value>
+                <![CDATA[]]>
+              </value>
+            </param>
+            <param index="9">
+              <value>
+                <![CDATA[Complete Gift Card workflow executes successfully]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyCompleteGiftCardWorkflow -->
+        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:Ecom.DemoWebShop.GiftCards.GiftCardsTestCase@31f9b85e]" started-at="2026-10-22T00:50:18 IST" name="closeBrowser" finished-at="2026-10-22T00:50:18 IST" duration-ms="230" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeBrowser -->
+      </class> <!-- Ecom.DemoWebShop.GiftCards.GiftCardsTestCase -->
+      <class name="Ecom.DemoWebShop.Checkout.CheckoutTestCase">
+        <test-method is-config="true" signature="navigateToApp(java.lang.String)[pri:0, instance:Ecom.DemoWebShop.Checkout.CheckoutTestCase@10d68fcd]" started-at="2026-10-22T00:50:48 IST" name="navigateToApp" finished-at="2026-10-22T00:50:52 IST" duration-ms="4383" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[Before Method]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- navigateToApp -->
+        <test-method signature="completeCheckout([Ljava.lang.Object;)[pri:15, instance:Ecom.DemoWebShop.Checkout.CheckoutTestCase@10d68fcd]" started-at="2026-10-22T00:50:52 IST" name="completeCheckout" data-provider="TC_CH_15_Data" finished-at="2026-10-22T00:51:25 IST" duration-ms="32691" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[Ljava.lang.Object;@35af52dc]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- completeCheckout -->
+        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:Ecom.DemoWebShop.Checkout.CheckoutTestCase@10d68fcd]" started-at="2026-10-22T00:51:25 IST" name="closeBrowser" finished-at="2026-10-22T00:51:25 IST" duration-ms="275" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeBrowser -->
+      </class> <!-- Ecom.DemoWebShop.Checkout.CheckoutTestCase -->
+      <class name="Ecom.DemoWebShop.Login.LoginTestCase">
+        <test-method is-config="true" signature="navigateToApp(java.lang.String)[pri:0, instance:Ecom.DemoWebShop.Login.LoginTestCase@762ef0ea]" started-at="2026-10-22T00:49:45 IST" name="navigateToApp" finished-at="2026-10-22T00:49:51 IST" duration-ms="6454" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[Before Method]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- navigateToApp -->
+        <test-method signature="verifyCompleteLoginWorkflow(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:Ecom.DemoWebShop.Login.LoginTestCase@762ef0ea]" started-at="2026-10-22T00:49:51 IST" name="verifyCompleteLoginWorkflow" data-provider="completeLoginData" finished-at="2026-10-22T00:49:56 IST" duration-ms="4816" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[TC-LOGIN-15]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Complete-Login-01]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[23rahul54@gmail.com]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[qwerty]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[No]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyCompleteLoginWorkflow -->
+        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:Ecom.DemoWebShop.Login.LoginTestCase@762ef0ea]" started-at="2026-10-22T00:49:56 IST" name="closeBrowser" finished-at="2026-10-22T00:49:56 IST" duration-ms="198" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeBrowser -->
+        <test-method is-config="true" signature="navigateToApp(java.lang.String)[pri:0, instance:Ecom.DemoWebShop.Login.LoginTestCase@762ef0ea]" started-at="2026-10-22T00:49:56 IST" name="navigateToApp" finished-at="2026-10-22T00:50:00 IST" duration-ms="3727" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[Before Method]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- navigateToApp -->
+        <test-method signature="verifyValidLogin(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:Ecom.DemoWebShop.Login.LoginTestCase@762ef0ea]" started-at="2026-10-22T00:50:00 IST" name="verifyValidLogin" data-provider="validLoginData" finished-at="2026-10-22T00:50:05 IST" duration-ms="4772" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[TC-LOGIN-02]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Valid-01]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[23rahul54@gmail.com]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[qwerty]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[No]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyValidLogin -->
+        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:Ecom.DemoWebShop.Login.LoginTestCase@762ef0ea]" started-at="2026-10-22T00:50:05 IST" name="closeBrowser" finished-at="2026-10-22T00:50:05 IST" duration-ms="299" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeBrowser -->
+      </class> <!-- Ecom.DemoWebShop.Login.LoginTestCase -->
+      <class name="Ecom.DemoWebShop.Register.RegisterTestCase">
+        <test-method is-config="true" signature="navigateToApp(java.lang.String)[pri:0, instance:Ecom.DemoWebShop.Register.RegisterTestCase@2d2ffcb7]" started-at="2026-10-22T00:48:59 IST" name="navigateToApp" finished-at="2026-10-22T00:49:04 IST" duration-ms="4485" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[Before Method]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- navigateToApp -->
+        <test-method signature="verifyCompleteRegistrationWorkflow(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:Ecom.DemoWebShop.Register.RegisterTestCase@2d2ffcb7]" started-at="2026-10-22T00:49:04 IST" name="verifyCompleteRegistrationWorkflow" data-provider="completeRegistrationData" finished-at="2026-10-22T00:49:19 IST" duration-ms="15042" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[TC-REG-15]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[CompleteWorkflow-01]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[Female]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[SystemUser]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[Test]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[unique-email]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[Test@123]]>
+              </value>
+            </param>
+            <param index="7">
+              <value>
+                <![CDATA[Test@123]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyCompleteRegistrationWorkflow -->
+        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:Ecom.DemoWebShop.Register.RegisterTestCase@2d2ffcb7]" started-at="2026-10-22T00:49:19 IST" name="closeBrowser" finished-at="2026-10-22T00:49:19 IST" duration-ms="321" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeBrowser -->
+        <test-method is-config="true" signature="navigateToApp(java.lang.String)[pri:0, instance:Ecom.DemoWebShop.Register.RegisterTestCase@2d2ffcb7]" started-at="2026-10-22T00:49:19 IST" name="navigateToApp" finished-at="2026-10-22T00:49:23 IST" duration-ms="4198" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[Before Method]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- navigateToApp -->
+        <test-method signature="verifyValidRegistration(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:Ecom.DemoWebShop.Register.RegisterTestCase@2d2ffcb7]" started-at="2026-10-22T00:49:23 IST" name="verifyValidRegistration" data-provider="validRegistrationData" finished-at="2026-10-22T00:49:32 IST" duration-ms="8386" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[TC-REG-02]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Valid-01]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[Male]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[ExcelUser]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[Test]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[unique-email]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[password]]>
+              </value>
+            </param>
+            <param index="7">
+              <value>
+                <![CDATA[password]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyValidRegistration -->
+        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:Ecom.DemoWebShop.Register.RegisterTestCase@2d2ffcb7]" started-at="2026-10-22T00:49:32 IST" name="closeBrowser" finished-at="2026-10-22T00:49:32 IST" duration-ms="501" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeBrowser -->
+        <test-method is-config="true" signature="navigateToApp(java.lang.String)[pri:0, instance:Ecom.DemoWebShop.Register.RegisterTestCase@2d2ffcb7]" started-at="2026-10-22T00:49:32 IST" name="navigateToApp" finished-at="2026-10-22T00:49:36 IST" duration-ms="3942" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[Before Method]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- navigateToApp -->
+        <test-method signature="verifyValidRegistration(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:Ecom.DemoWebShop.Register.RegisterTestCase@2d2ffcb7]" started-at="2026-10-22T00:49:36 IST" name="verifyValidRegistration" data-provider="validRegistrationData" finished-at="2026-10-22T00:49:44 IST" duration-ms="8299" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[TC-REG-02]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Valid-02]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[Female]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[ExcelUser]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[Test]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[unique-email]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[password]]>
+              </value>
+            </param>
+            <param index="7">
+              <value>
+                <![CDATA[password]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyValidRegistration -->
+        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:Ecom.DemoWebShop.Register.RegisterTestCase@2d2ffcb7]" started-at="2026-10-22T00:49:44 IST" name="closeBrowser" finished-at="2026-10-22T00:49:45 IST" duration-ms="245" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeBrowser -->
+      </class> <!-- Ecom.DemoWebShop.Register.RegisterTestCase -->
+      <class name="Ecom.DemoWebShop.Wishlist.WishlistTestCase">
+        <test-method is-config="true" signature="navigateToApp(java.lang.String)[pri:0, instance:Ecom.DemoWebShop.Wishlist.WishlistTestCase@117e949d]" started-at="2026-10-22T00:51:25 IST" name="navigateToApp" finished-at="2026-10-22T00:51:29 IST" duration-ms="4200" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[Before Method]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- navigateToApp -->
+        <test-method signature="verifyCompleteWishlistWorkflow(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:12, instance:Ecom.DemoWebShop.Wishlist.WishlistTestCase@117e949d]" started-at="2026-10-22T00:51:29 IST" name="verifyCompleteWishlistWorkflow" data-provider="wish12Data" finished-at="2026-10-22T00:51:54 IST" duration-ms="24614" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[TC-WISH-12]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Complete-Workflow]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[2]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[1]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[$5 Virtual Gift Card]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[Virtual]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[]]>
+              </value>
+            </param>
+            <param index="7">
+              <value>
+                <![CDATA[Product should be displayed, quantity should be updated, and product should be transferred to Shopping Cart successfully]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyCompleteWishlistWorkflow -->
+        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:Ecom.DemoWebShop.Wishlist.WishlistTestCase@117e949d]" started-at="2026-10-22T00:51:54 IST" name="closeBrowser" finished-at="2026-10-22T00:51:55 IST" duration-ms="468" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeBrowser -->
+      </class> <!-- Ecom.DemoWebShop.Wishlist.WishlistTestCase -->
+      <class name="Ecom.DemoWebShop.Home.HomeTestCase">
+        <test-method is-config="true" signature="dbConnection()[pri:0, instance:Ecom.DemoWebShop.Home.HomeTestCase@58ea606c]" started-at="2026-10-22T00:48:46 IST" name="dbConnection" finished-at="2026-10-22T00:48:46 IST" duration-ms="21" status="PASS">
+          <reporter-output>
+            <line>
+              <![CDATA[Before Suite]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- dbConnection -->
+        <test-method is-config="true" signature="bt()[pri:0, instance:Ecom.DemoWebShop.Home.HomeTestCase@58ea606c]" started-at="2026-10-22T00:48:46 IST" name="bt" finished-at="2026-10-22T00:48:46 IST" duration-ms="2" status="PASS">
+          <reporter-output>
+            <line>
+              <![CDATA[Before Test]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- bt -->
+        <test-method is-config="true" signature="navigateToApp(java.lang.String)[pri:0, instance:Ecom.DemoWebShop.Home.HomeTestCase@58ea606c]" started-at="2026-10-22T00:48:47 IST" name="navigateToApp" finished-at="2026-10-22T00:48:54 IST" duration-ms="6921" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[Before Method]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- navigateToApp -->
+        <test-method signature="verifyHomePageCompleteProjectFlow(java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:Ecom.DemoWebShop.Home.HomeTestCase@58ea606c]" started-at="2026-10-22T00:48:54 IST" name="verifyHomePageCompleteProjectFlow" data-provider="systemSearchData" finished-at="2026-10-22T00:48:59 IST" duration-ms="5011" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[TC-HOME-09]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[System-01]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[$50 Physical Gift Card]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyHomePageCompleteProjectFlow -->
+        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:Ecom.DemoWebShop.Home.HomeTestCase@58ea606c]" started-at="2026-10-22T00:48:59 IST" name="closeBrowser" finished-at="2026-10-22T00:48:59 IST" duration-ms="203" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeBrowser -->
+      </class> <!-- Ecom.DemoWebShop.Home.HomeTestCase -->
+    </test> <!-- System Test Cases -->
+  </suite> <!-- DemoWebShop System Suite -->
 </testng-results>
