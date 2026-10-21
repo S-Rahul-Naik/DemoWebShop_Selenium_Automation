@@ -56,7 +56,6 @@ public class ExcelUtility {
         for (int i = 1; i <= sheet.getLastRowNum(); i++) {
 
             Row row = sheet.getRow(i);
-
             if (row == null) {
                 continue;
             }

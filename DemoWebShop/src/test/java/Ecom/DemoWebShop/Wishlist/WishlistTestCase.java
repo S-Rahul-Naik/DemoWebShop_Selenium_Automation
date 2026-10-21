@@ -31,7 +31,6 @@ public class WishlistTestCase extends DemoWebShopBaseClass {
         ProductUtility pu = new ProductUtility(driver);
         pu.addProductToWishlistFromProductData(productTestCaseId);
         Thread.sleep(1500);
-
         HomePage hp = new HomePage(driver);
         hp.clickWishlist();
         Thread.sleep(1000);

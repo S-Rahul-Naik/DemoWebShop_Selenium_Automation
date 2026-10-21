@@ -199,24 +199,21 @@ public class GiftCardsPage {
 
     public void selectViewMode(String visibleText) {
 
-        Select select =
-                new Select(viewModeDropdown);
+        Select select = new Select(viewModeDropdown);
 
         select.selectByVisibleText(visibleText);
     }
 
     public void selectSortBy(String visibleText) {
 
-        Select select =
-                new Select(sortByDropdown);
+        Select select = new Select(sortByDropdown);
 
         select.selectByVisibleText(visibleText);
     }
 
     public void selectDisplayPerPage(String visibleText) {
 
-        Select select =
-                new Select(displayPerPageDropdown);
+        Select select = new Select(displayPerPageDropdown);
 
         select.selectByVisibleText(visibleText);
     }

@@ -1,5 +1,6 @@
 package ObjectRepo;
 
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -194,22 +195,14 @@ public class ShoppingCartPage {
 
         String productName = expectedProductName.trim();
 
-        String xpath =
-                "//table[contains(@class,'cart')]//tr["
-                + ".//a[contains(@class,'product-name')"
+        String xpath = "//table[contains(@class,'cart')]//tr["+ ".//a[contains(@class,'product-name')"
                 + " and normalize-space()=\"" + productName + "\"]"
                 + "]";
-
-        WebElement productRow =
-                driver.findElement(By.xpath(xpath));
-
-        return productRow
-                .findElement(By.cssSelector("input.qty-input"))
-                .getAttribute("value");
+        WebElement productRow = driver.findElement(By.xpath(xpath));
+        return productRow.findElement(By.cssSelector("input.qty-input")).getAttribute("value");
     }
 
     public void enterQuantity(String quantity) {
-
         quantityField.clear();
         quantityField.sendKeys(quantity);
     }
@@ -220,7 +213,6 @@ public class ShoppingCartPage {
     // ============================================================
 
     public void selectRemoveProduct() {
-
         if (!removeProductCheckbox.isSelected()) {
             removeProductCheckbox.click();
         }

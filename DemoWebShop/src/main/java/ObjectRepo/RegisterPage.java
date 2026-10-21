@@ -80,7 +80,6 @@ public class RegisterPage {
         femaleRadioButton.click();
     }
 
-
     // ============================================================
     // REGISTRATION FIELD METHODS
     // ============================================================

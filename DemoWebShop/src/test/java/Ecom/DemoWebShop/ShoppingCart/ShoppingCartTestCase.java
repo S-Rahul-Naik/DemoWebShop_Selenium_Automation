@@ -34,6 +34,7 @@ public class ShoppingCartTestCase extends DemoWebShopBaseClass {
         loginToApplication(fu.getDataFromPropertyFile("username2"), fu.getDataFromPropertyFile("password2"));
 
         HomePage home = new HomePage(driver);
+        Thread.sleep(1000);
         home.clickShoppingCart();
         Thread.sleep(1000);
 
@@ -339,7 +340,7 @@ public class ShoppingCartTestCase extends DemoWebShopBaseClass {
                 "Test gift card",
                 quantity);
 
-        Thread.sleep(4000);
+        Thread.sleep(2000);
 
         if (!country.isEmpty()) {
             cart.selectCountry(country);
@@ -394,9 +395,9 @@ public class ShoppingCartTestCase extends DemoWebShopBaseClass {
         Assert.assertTrue(cart.isTermsOfServiceSelected(), "Terms of Service could not be selected");
 
         cart.clickCheckout();
-        Thread.sleep(4000);
+        Thread.sleep(2000);
 
-        Assert.assertFalse(driver.getCurrentUrl().contains("/cart"), "Checkout was not initiated");
+        Assert.assertTrue(driver.getCurrentUrl().contains("onepagecheckout"), "Checkout was not initiated");
     }
 
     // TC-CART-09 - Verify cart totals are updated after quantity change - Functional
@@ -468,6 +469,7 @@ public class ShoppingCartTestCase extends DemoWebShopBaseClass {
                 "1");
 
         cart.enterQuantity(quantity);
+        Thread.sleep(2000);
         cart.clickUpdateCart();
 
         if (quantity.equals("0")) {
@@ -510,7 +512,7 @@ public class ShoppingCartTestCase extends DemoWebShopBaseClass {
                 "Test gift card",
                 "1");
 
-        cart.enterQuantity(invalidQuantity);//abc
+        cart.enterQuantity(invalidQuantity);//abc -- 1
         cart.clickUpdateCart();
 
         ScreenshotUtility.captureScreenshot(driver, "TC-CART-11_InvalidQuantity");
@@ -519,7 +521,7 @@ public class ShoppingCartTestCase extends DemoWebShopBaseClass {
                 cart.isCartDisplayed(),
                 "Shopping Cart became unavailable after invalid quantity");
 
-        cart.enterQuantity("0");//abc
+        cart.enterQuantity("0");
         cart.clickUpdateCart();
     }
 

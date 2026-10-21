@@ -26,6 +26,7 @@ public class DemoWebShopBaseClass {
         Reporter.log("Before Suite", true);
     }
 
+    
     @BeforeTest(alwaysRun = true)
     public void bt() {
         Reporter.log("Before Test", true);

@@ -3,15 +3,15 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="Ecom.DemoWebShop.Checkout.CheckoutTestCase">
+      <class name="Ecom.DemoWebShop.ShoppingCart.ShoppingCartTestCase">
         <methods>
           <include name="navigateToApp"/>
           <include name="bt"/>
           <include name="closeBrowser"/>
-          <include name="verifyBillingAddressAndCreate" invocation-numbers="0"/>
+          <include name="verifyBasicShoppingCartFunctionality" invocation-numbers="0"/>
           <include name="dbConnection"/>
         </methods>
-      </class> <!-- Ecom.DemoWebShop.Checkout.CheckoutTestCase -->
+      </class> <!-- Ecom.DemoWebShop.ShoppingCart.ShoppingCartTestCase -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

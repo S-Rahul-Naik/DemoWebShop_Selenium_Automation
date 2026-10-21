@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="8" passed="8" failed="0" skipped="0">
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
     <line>
       <![CDATA[Before Suite]]>
@@ -10,472 +10,30 @@
     <line>
       <![CDATA[Before Method]]>
     </line>
-    <line>
-      <![CDATA[Before Method]]>
-    </line>
-    <line>
-      <![CDATA[Before Method]]>
-    </line>
-    <line>
-      <![CDATA[Before Method]]>
-    </line>
-    <line>
-      <![CDATA[Before Method]]>
-    </line>
-    <line>
-      <![CDATA[Before Method]]>
-    </line>
-    <line>
-      <![CDATA[Before Method]]>
-    </line>
-    <line>
-      <![CDATA[Before Method]]>
-    </line>
   </reporter-output>
-  <suite started-at="2026-10-21T00:42:43 IST" name="Regression_Suite" finished-at="2026-10-21T00:45:05 IST" duration-ms="141575">
+  <suite started-at="2026-10-21T20:50:14 IST" name="Default suite" finished-at="2026-10-21T20:50:43 IST" duration-ms="29091">
     <groups>
-      <group name="Regression">
-        <method signature="GiftCardsTestCase.verifyGiftCardRegressionFunctionality(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:Ecom.DemoWebShop.GiftCards.GiftCardsTestCase@31f9b85e]" name="verifyGiftCardRegressionFunctionality" class="Ecom.DemoWebShop.GiftCards.GiftCardsTestCase"/>
-        <method signature="HomeTestCase.verifyHomePageRegression(java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:Ecom.DemoWebShop.Home.HomeTestCase@58ea606c]" name="verifyHomePageRegression" class="Ecom.DemoWebShop.Home.HomeTestCase"/>
-        <method signature="LoginTestCase.verifyLoginRegression(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:Ecom.DemoWebShop.Login.LoginTestCase@762ef0ea]" name="verifyLoginRegression" class="Ecom.DemoWebShop.Login.LoginTestCase"/>
-        <method signature="RegisterTestCase.verifyRegisterRegression(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:Ecom.DemoWebShop.Register.RegisterTestCase@2d2ffcb7]" name="verifyRegisterRegression" class="Ecom.DemoWebShop.Register.RegisterTestCase"/>
-        <method signature="ShoppingCartTestCase.verifyShoppingCartRegression(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:Ecom.DemoWebShop.ShoppingCart.ShoppingCartTestCase@424e1977]" name="verifyShoppingCartRegression" class="Ecom.DemoWebShop.ShoppingCart.ShoppingCartTestCase"/>
-        <method signature="WishlistTestCase.verifyWishlistRegression(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:9, instance:Ecom.DemoWebShop.Wishlist.WishlistTestCase@117e949d]" name="verifyWishlistRegression" class="Ecom.DemoWebShop.Wishlist.WishlistTestCase"/>
-        <method signature="CheckoutTestCase.regressionValidCheckout([Ljava.lang.Object;)[pri:13, instance:Ecom.DemoWebShop.Checkout.CheckoutTestCase@10d68fcd]" name="regressionValidCheckout" class="Ecom.DemoWebShop.Checkout.CheckoutTestCase"/>
-      </group> <!-- Regression -->
+      <group name="Smoke">
+        <method signature="ShoppingCartTestCase.verifyBasicShoppingCartFunctionality(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:Ecom.DemoWebShop.ShoppingCart.ShoppingCartTestCase@3eb738bb]" name="verifyBasicShoppingCartFunctionality" class="Ecom.DemoWebShop.ShoppingCart.ShoppingCartTestCase"/>
+      </group> <!-- Smoke -->
     </groups>
-    <test started-at="2026-10-21T00:42:43 IST" name="DemoWebShop_Regression_Testing" finished-at="2026-10-21T00:45:05 IST" duration-ms="141575">
+    <test started-at="2026-10-21T20:50:14 IST" name="Default test" finished-at="2026-10-21T20:50:43 IST" duration-ms="29091">
       <class name="Ecom.DemoWebShop.ShoppingCart.ShoppingCartTestCase">
-        <test-method is-config="true" signature="navigateToApp(java.lang.String)[pri:0, instance:Ecom.DemoWebShop.ShoppingCart.ShoppingCartTestCase@424e1977]" started-at="2026-10-21T00:43:31 IST" name="navigateToApp" finished-at="2026-10-21T00:43:36 IST" duration-ms="4599" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[chrome]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-            <line>
-              <![CDATA[Before Method]]>
-            </line>
-          </reporter-output>
-        </test-method> <!-- navigateToApp -->
-        <test-method signature="verifyShoppingCartRegression(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:Ecom.DemoWebShop.ShoppingCart.ShoppingCartTestCase@424e1977]" started-at="2026-10-21T00:43:36 IST" name="verifyShoppingCartRegression" data-provider="cart13Data" finished-at="2026-10-21T00:44:01 IST" duration-ms="24806" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[TC-CART-13]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[Regression]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[$5 Virtual Gift Card]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[2]]>
-              </value>
-            </param>
-            <param index="4">
-              <value>
-                <![CDATA[]]>
-              </value>
-            </param>
-            <param index="5">
-              <value>
-                <![CDATA[]]>
-              </value>
-            </param>
-            <param index="6">
-              <value>
-                <![CDATA[]]>
-              </value>
-            </param>
-            <param index="7">
-              <value>
-                <![CDATA[]]>
-              </value>
-            </param>
-            <param index="8">
-              <value>
-                <![CDATA[]]>
-              </value>
-            </param>
-            <param index="9">
-              <value>
-                <![CDATA[]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyShoppingCartRegression -->
-        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:Ecom.DemoWebShop.ShoppingCart.ShoppingCartTestCase@424e1977]" started-at="2026-10-21T00:44:01 IST" name="closeBrowser" finished-at="2026-10-21T00:44:01 IST" duration-ms="240" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- closeBrowser -->
-      </class> <!-- Ecom.DemoWebShop.ShoppingCart.ShoppingCartTestCase -->
-      <class name="Ecom.DemoWebShop.GiftCards.GiftCardsTestCase">
-        <test-method is-config="true" signature="navigateToApp(java.lang.String)[pri:0, instance:Ecom.DemoWebShop.GiftCards.GiftCardsTestCase@31f9b85e]" started-at="2026-10-21T00:43:23 IST" name="navigateToApp" finished-at="2026-10-21T00:43:27 IST" duration-ms="4092" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[chrome]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-            <line>
-              <![CDATA[Before Method]]>
-            </line>
-          </reporter-output>
-        </test-method> <!-- navigateToApp -->
-        <test-method signature="verifyGiftCardRegressionFunctionality(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:Ecom.DemoWebShop.GiftCards.GiftCardsTestCase@31f9b85e]" started-at="2026-10-21T00:43:27 IST" name="verifyGiftCardRegressionFunctionality" data-provider="giftCardRegressionData" finished-at="2026-10-21T00:43:31 IST" duration-ms="3515" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[TC-GC-10]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[Regression-01]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[1]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[$5 Virtual Gift Card]]>
-              </value>
-            </param>
-            <param index="4">
-              <value>
-                <![CDATA[Virtual]]>
-              </value>
-            </param>
-            <param index="5">
-              <value>
-                <![CDATA[]]>
-              </value>
-            </param>
-            <param index="6">
-              <value>
-                <![CDATA[]]>
-              </value>
-            </param>
-            <param index="7">
-              <value>
-                <![CDATA[]]>
-              </value>
-            </param>
-            <param index="8">
-              <value>
-                <![CDATA[]]>
-              </value>
-            </param>
-            <param index="9">
-              <value>
-                <![CDATA[Existing Gift Cards functionality continues to work]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyGiftCardRegressionFunctionality -->
-        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:Ecom.DemoWebShop.GiftCards.GiftCardsTestCase@31f9b85e]" started-at="2026-10-21T00:43:31 IST" name="closeBrowser" finished-at="2026-10-21T00:43:31 IST" duration-ms="167" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- closeBrowser -->
-      </class> <!-- Ecom.DemoWebShop.GiftCards.GiftCardsTestCase -->
-      <class name="Ecom.DemoWebShop.Checkout.CheckoutTestCase">
-        <test-method is-config="true" signature="navigateToApp(java.lang.String)[pri:0, instance:Ecom.DemoWebShop.Checkout.CheckoutTestCase@10d68fcd]" started-at="2026-10-21T00:44:01 IST" name="navigateToApp" finished-at="2026-10-21T00:44:06 IST" duration-ms="4819" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[chrome]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-            <line>
-              <![CDATA[Before Method]]>
-            </line>
-          </reporter-output>
-        </test-method> <!-- navigateToApp -->
-        <test-method signature="regressionValidCheckout([Ljava.lang.Object;)[pri:13, instance:Ecom.DemoWebShop.Checkout.CheckoutTestCase@10d68fcd]" started-at="2026-10-21T00:44:06 IST" name="regressionValidCheckout" data-provider="TC_CH_13_Data" finished-at="2026-10-21T00:44:36 IST" duration-ms="30737" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[Ljava.lang.Object;@5b332439]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- regressionValidCheckout -->
-        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:Ecom.DemoWebShop.Checkout.CheckoutTestCase@10d68fcd]" started-at="2026-10-21T00:44:36 IST" name="closeBrowser" finished-at="2026-10-21T00:44:37 IST" duration-ms="227" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- closeBrowser -->
-      </class> <!-- Ecom.DemoWebShop.Checkout.CheckoutTestCase -->
-      <class name="Ecom.DemoWebShop.Login.LoginTestCase">
-        <test-method is-config="true" signature="navigateToApp(java.lang.String)[pri:0, instance:Ecom.DemoWebShop.Login.LoginTestCase@762ef0ea]" started-at="2026-10-21T00:43:04 IST" name="navigateToApp" finished-at="2026-10-21T00:43:10 IST" duration-ms="5704" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[chrome]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-            <line>
-              <![CDATA[Before Method]]>
-            </line>
-          </reporter-output>
-        </test-method> <!-- navigateToApp -->
-        <test-method signature="verifyLoginRegression(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:Ecom.DemoWebShop.Login.LoginTestCase@762ef0ea]" started-at="2026-10-21T00:43:10 IST" name="verifyLoginRegression" data-provider="regressionLoginData" finished-at="2026-10-21T00:43:15 IST" duration-ms="5086" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[TC-LOGIN-13]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[Valid]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[23rahul54@gmail.com]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[qwerty]]>
-              </value>
-            </param>
-            <param index="4">
-              <value>
-                <![CDATA[No]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyLoginRegression -->
-        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:Ecom.DemoWebShop.Login.LoginTestCase@762ef0ea]" started-at="2026-10-21T00:43:15 IST" name="closeBrowser" finished-at="2026-10-21T00:43:15 IST" duration-ms="209" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- closeBrowser -->
-        <test-method is-config="true" signature="navigateToApp(java.lang.String)[pri:0, instance:Ecom.DemoWebShop.Login.LoginTestCase@762ef0ea]" started-at="2026-10-21T00:43:15 IST" name="navigateToApp" finished-at="2026-10-21T00:43:19 IST" duration-ms="4111" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[chrome]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-            <line>
-              <![CDATA[Before Method]]>
-            </line>
-          </reporter-output>
-        </test-method> <!-- navigateToApp -->
-        <test-method signature="verifyLoginRegression(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:Ecom.DemoWebShop.Login.LoginTestCase@762ef0ea]" started-at="2026-10-21T00:43:19 IST" name="verifyLoginRegression" data-provider="regressionLoginData" finished-at="2026-10-21T00:43:23 IST" duration-ms="3756" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[TC-LOGIN-13]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[Invalid]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[invalid-email]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[Wrong@123]]>
-              </value>
-            </param>
-            <param index="4">
-              <value>
-                <![CDATA[No]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyLoginRegression -->
-        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:Ecom.DemoWebShop.Login.LoginTestCase@762ef0ea]" started-at="2026-10-21T00:43:23 IST" name="closeBrowser" finished-at="2026-10-21T00:43:23 IST" duration-ms="201" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- closeBrowser -->
-      </class> <!-- Ecom.DemoWebShop.Login.LoginTestCase -->
-      <class name="Ecom.DemoWebShop.Register.RegisterTestCase">
-        <test-method is-config="true" signature="navigateToApp(java.lang.String)[pri:0, instance:Ecom.DemoWebShop.Register.RegisterTestCase@2d2ffcb7]" started-at="2026-10-21T00:42:54 IST" name="navigateToApp" finished-at="2026-10-21T00:42:59 IST" duration-ms="4560" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[chrome]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-            <line>
-              <![CDATA[Before Method]]>
-            </line>
-          </reporter-output>
-        </test-method> <!-- navigateToApp -->
-        <test-method signature="verifyRegisterRegression(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:Ecom.DemoWebShop.Register.RegisterTestCase@2d2ffcb7]" started-at="2026-10-21T00:42:59 IST" name="verifyRegisterRegression" data-provider="regressionRegistrationData" finished-at="2026-10-21T00:43:04 IST" duration-ms="5391" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[TC-REG-14]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[Regression-01]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[Male]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[RegressionUser]]>
-              </value>
-            </param>
-            <param index="4">
-              <value>
-                <![CDATA[Test]]>
-              </value>
-            </param>
-            <param index="5">
-              <value>
-                <![CDATA[unique-email]]>
-              </value>
-            </param>
-            <param index="6">
-              <value>
-                <![CDATA[Test@123]]>
-              </value>
-            </param>
-            <param index="7">
-              <value>
-                <![CDATA[Test@123]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyRegisterRegression -->
-        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:Ecom.DemoWebShop.Register.RegisterTestCase@2d2ffcb7]" started-at="2026-10-21T00:43:04 IST" name="closeBrowser" finished-at="2026-10-21T00:43:04 IST" duration-ms="195" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- closeBrowser -->
-      </class> <!-- Ecom.DemoWebShop.Register.RegisterTestCase -->
-      <class name="Ecom.DemoWebShop.Wishlist.WishlistTestCase">
-        <test-method is-config="true" signature="navigateToApp(java.lang.String)[pri:0, instance:Ecom.DemoWebShop.Wishlist.WishlistTestCase@117e949d]" started-at="2026-10-21T00:44:37 IST" name="navigateToApp" finished-at="2026-10-21T00:44:41 IST" duration-ms="4636" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[chrome]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-            <line>
-              <![CDATA[Before Method]]>
-            </line>
-          </reporter-output>
-        </test-method> <!-- navigateToApp -->
-        <test-method signature="verifyWishlistRegression(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:9, instance:Ecom.DemoWebShop.Wishlist.WishlistTestCase@117e949d]" started-at="2026-10-21T00:44:41 IST" name="verifyWishlistRegression" data-provider="wish09Data" finished-at="2026-10-21T00:45:04 IST" duration-ms="23044" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[TC-WISH-09]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[Regression]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[2]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[4]]>
-              </value>
-            </param>
-            <param index="4">
-              <value>
-                <![CDATA[$100 Physical Gift Card]]>
-              </value>
-            </param>
-            <param index="5">
-              <value>
-                <![CDATA[Physical]]>
-              </value>
-            </param>
-            <param index="6">
-              <value>
-                <![CDATA[]]>
-              </value>
-            </param>
-            <param index="7">
-              <value>
-                <![CDATA[Existing Wishlist product should be updated successfully and remain available]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyWishlistRegression -->
-        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:Ecom.DemoWebShop.Wishlist.WishlistTestCase@117e949d]" started-at="2026-10-21T00:45:04 IST" name="closeBrowser" finished-at="2026-10-21T00:45:05 IST" duration-ms="223" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- closeBrowser -->
-      </class> <!-- Ecom.DemoWebShop.Wishlist.WishlistTestCase -->
-      <class name="Ecom.DemoWebShop.Home.HomeTestCase">
-        <test-method is-config="true" signature="dbConnection()[pri:0, instance:Ecom.DemoWebShop.Home.HomeTestCase@58ea606c]" started-at="2026-10-21T00:42:43 IST" name="dbConnection" finished-at="2026-10-21T00:42:43 IST" duration-ms="16" status="PASS">
+        <test-method is-config="true" signature="dbConnection()[pri:0, instance:Ecom.DemoWebShop.ShoppingCart.ShoppingCartTestCase@3eb738bb]" started-at="2026-10-21T20:50:14 IST" name="dbConnection" finished-at="2026-10-21T20:50:14 IST" duration-ms="11" status="PASS">
           <reporter-output>
             <line>
               <![CDATA[Before Suite]]>
             </line>
           </reporter-output>
         </test-method> <!-- dbConnection -->
-        <test-method is-config="true" signature="bt()[pri:0, instance:Ecom.DemoWebShop.Home.HomeTestCase@58ea606c]" started-at="2026-10-21T00:42:43 IST" name="bt" finished-at="2026-10-21T00:42:43 IST" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="bt()[pri:0, instance:Ecom.DemoWebShop.ShoppingCart.ShoppingCartTestCase@3eb738bb]" started-at="2026-10-21T20:50:14 IST" name="bt" finished-at="2026-10-21T20:50:14 IST" duration-ms="1" status="PASS">
           <reporter-output>
             <line>
               <![CDATA[Before Test]]>
             </line>
           </reporter-output>
         </test-method> <!-- bt -->
-        <test-method is-config="true" signature="navigateToApp(java.lang.String)[pri:0, instance:Ecom.DemoWebShop.Home.HomeTestCase@58ea606c]" started-at="2026-10-21T00:42:44 IST" name="navigateToApp" finished-at="2026-10-21T00:42:49 IST" duration-ms="5238" status="PASS">
+        <test-method is-config="true" signature="navigateToApp(java.lang.String)[pri:0, instance:Ecom.DemoWebShop.ShoppingCart.ShoppingCartTestCase@3eb738bb]" started-at="2026-10-21T20:50:14 IST" name="navigateToApp" finished-at="2026-10-21T20:50:19 IST" duration-ms="4528" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -489,32 +47,67 @@
             </line>
           </reporter-output>
         </test-method> <!-- navigateToApp -->
-        <test-method signature="verifyHomePageRegression(java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:Ecom.DemoWebShop.Home.HomeTestCase@58ea606c]" started-at="2026-10-21T00:42:49 IST" name="verifyHomePageRegression" data-provider="regressionSearchData" finished-at="2026-10-21T00:42:54 IST" duration-ms="4505" status="PASS">
+        <test-method signature="verifyBasicShoppingCartFunctionality(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:Ecom.DemoWebShop.ShoppingCart.ShoppingCartTestCase@3eb738bb]" started-at="2026-10-21T20:50:19 IST" name="verifyBasicShoppingCartFunctionality" data-provider="cart12Data" finished-at="2026-10-21T20:50:43 IST" duration-ms="23538" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[TC-HOME-08]]>
+                <![CDATA[TC-CART-12]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA[Regression-01]]>
+                <![CDATA[Smoke]]>
               </value>
             </param>
             <param index="2">
               <value>
-                <![CDATA[$25 Virtual Gift Card]]>
+                <![CDATA[$5 Virtual Gift Card]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[1]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[]]>
+              </value>
+            </param>
+            <param index="7">
+              <value>
+                <![CDATA[]]>
+              </value>
+            </param>
+            <param index="8">
+              <value>
+                <![CDATA[]]>
+              </value>
+            </param>
+            <param index="9">
+              <value>
+                <![CDATA[]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verifyHomePageRegression -->
-        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:Ecom.DemoWebShop.Home.HomeTestCase@58ea606c]" started-at="2026-10-21T00:42:54 IST" name="closeBrowser" finished-at="2026-10-21T00:42:54 IST" duration-ms="183" status="PASS">
+        </test-method> <!-- verifyBasicShoppingCartFunctionality -->
+        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:Ecom.DemoWebShop.ShoppingCart.ShoppingCartTestCase@3eb738bb]" started-at="2026-10-21T20:50:43 IST" name="closeBrowser" finished-at="2026-10-21T20:50:43 IST" duration-ms="239" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- closeBrowser -->
-      </class> <!-- Ecom.DemoWebShop.Home.HomeTestCase -->
-    </test> <!-- DemoWebShop_Regression_Testing -->
-  </suite> <!-- Regression_Suite -->
+      </class> <!-- Ecom.DemoWebShop.ShoppingCart.ShoppingCartTestCase -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
 </testng-results>
