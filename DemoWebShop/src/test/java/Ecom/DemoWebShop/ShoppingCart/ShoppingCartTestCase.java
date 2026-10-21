@@ -1,8 +1,11 @@
 package Ecom.DemoWebShop.ShoppingCart;
 
 import java.io.IOException;
+import java.time.Duration;
 
 import org.apache.poi.EncryptedDocumentException;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -651,7 +654,7 @@ public class ShoppingCartTestCase extends DemoWebShopBaseClass {
             String country,
             String state,
             String zipCode) throws Exception {
-
+    	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         ShoppingCartPage cart = addProductToCart(
                 productName,
                 "Virtual",
@@ -683,6 +686,8 @@ public class ShoppingCartTestCase extends DemoWebShopBaseClass {
 
         // Checkout
         cart.clickCheckout();
+        
+        wait.until(ExpectedConditions.urlContains("/onepagecheckout"));
 
         Assert.assertTrue(driver.getCurrentUrl().contains("/onepagecheckout"),"Checkout was not initiated");
     }
