@@ -431,10 +431,10 @@ public class ShoppingCartTestCase extends DemoWebShopBaseClass {
 
         String oldSubtotal = cart.getProductSubtotal();
         String oldTotal = cart.getOrderTotal();
-
+        Thread.sleep(1000);
         cart.enterQuantity(quantity);
         cart.clickUpdateCart();
-
+        Thread.sleep(1000);
         Assert.assertNotEquals(cart.getProductSubtotal(), oldSubtotal, "Product subtotal was not recalculated");
         Assert.assertNotEquals(cart.getOrderTotal(), oldTotal, "Order total was not recalculated");
     }
