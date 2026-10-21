@@ -125,12 +125,17 @@ public class HomePage {
     public boolean isProductDisplayedInSearchResults(
             String productName) {
 
+        By productLocator =
+                By.xpath(
+                        "//h2[@class='product-title']/a[normalize-space()='"
+                        + productName
+                        + "']"
+                );
+
         WebElement product =
-                driver.findElement(
-                        By.xpath(
-                                "//h2[@class='product-title']/a[normalize-space()='"
-                                + productName
-                                + "']"
+                wait.until(
+                        ExpectedConditions.visibilityOfElementLocated(
+                                productLocator
                         )
                 );
 
