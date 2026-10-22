@@ -3,6 +3,7 @@ package ObjectRepo;
 import java.time.Duration;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -280,9 +281,28 @@ public class CheckoutPage {
     }
 
     public void selectBillingState(String state) {
-        wait.until(ExpectedConditions.elementToBeClickable(billingState));
-        Select select = new Select(billingState);
-        select.selectByVisibleText(state);
+
+        By stateLocator = By.id("BillingNewAddress_StateProvinceId");
+
+        for (int i = 0; i < 3; i++) {
+
+            try {
+                WebElement stateElement = wait.until(
+                        ExpectedConditions.visibilityOfElementLocated(stateLocator)
+                );
+
+                Select select = new Select(stateElement);
+                select.selectByVisibleText(state);
+
+                return;
+
+            } catch (StaleElementReferenceException e) {
+
+                if (i == 2) {
+                    throw e;
+                }
+            }
+        }
     }
 
     public void enterBillingCity(String city) {

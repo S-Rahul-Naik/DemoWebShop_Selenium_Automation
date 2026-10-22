@@ -5,25 +5,13 @@
     <classes>
       <class name="Ecom.DemoWebShop.Checkout.CheckoutTestCase">
         <methods>
-          <include name="completeCheckout" invocation-numbers="0"/>
           <include name="navigateToApp"/>
-          <include name="verifyBillingBoundaryValues" invocation-numbers="1"/>
           <include name="bt"/>
           <include name="closeBrowser"/>
-          <include name="verifyInvalidEmailValidation" invocation-numbers="0"/>
-          <include name="verifyShippingAddressAndCreate" invocation-numbers="0"/>
+          <include name="verifyBillingAddressAndCreate" invocation-numbers="0"/>
           <include name="dbConnection"/>
         </methods>
       </class> <!-- Ecom.DemoWebShop.Checkout.CheckoutTestCase -->
-      <class name="Ecom.DemoWebShop.Wishlist.WishlistTestCase">
-        <methods>
-          <include name="navigateToApp"/>
-          <include name="closeBrowser"/>
-          <include name="bt"/>
-          <include name="verifyCompleteWishlistWorkflow" invocation-numbers="0"/>
-          <include name="dbConnection"/>
-        </methods>
-      </class> <!-- Ecom.DemoWebShop.Wishlist.WishlistTestCase -->
     </classes>
   </test> <!-- Parallel_Testing(failed) -->
 </suite> <!-- Failed suite [Parallel_Suite] -->
