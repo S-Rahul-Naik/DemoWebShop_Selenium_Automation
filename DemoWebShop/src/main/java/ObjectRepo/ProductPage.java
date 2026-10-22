@@ -15,6 +15,7 @@ public class ProductPage {
     // CONSTRUCTOR
     // ============================================================
     WebDriverWait wait;
+
     public ProductPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
@@ -65,11 +66,11 @@ public class ProductPage {
     // ============================================================
 
     public String getSenderName() {
-        return senderName.getAttribute("value");
+        return wait.until(ExpectedConditions.visibilityOf(senderName)).getAttribute("value");
     }
 
     public String getSenderEmail() {
-        return senderEmail.getAttribute("value");
+        return wait.until(ExpectedConditions.visibilityOf(senderEmail)).getAttribute("value");
     }
 
 
@@ -78,25 +79,33 @@ public class ProductPage {
     // ============================================================
 
     public void enterRecipientName(String name) {
-        recipientName.sendKeys(name);
+        WebElement element = wait.until(ExpectedConditions.visibilityOf(recipientName));
+        element.clear();
+        element.sendKeys(name);
     }
 
     public void enterRecipientEmail(String email) {
-        recipientEmail.sendKeys(email);
+        WebElement element = wait.until(ExpectedConditions.visibilityOf(recipientEmail));
+        element.clear();
+        element.sendKeys(email);
     }
 
     public void enterSenderName(String name) {
-    	senderName.clear();
-        senderName.sendKeys(name);
+        WebElement element = wait.until(ExpectedConditions.visibilityOf(senderName));
+        element.clear();
+        element.sendKeys(name);
     }
 
     public void enterSenderEmail(String email) {
-        senderEmail.sendKeys(email);
+        WebElement element = wait.until(ExpectedConditions.visibilityOf(senderEmail));
+        element.clear();
+        element.sendKeys(email);
     }
 
     public void enterMessage(String messageText) {
-        message.clear();
-        message.sendKeys(messageText);
+        WebElement element = wait.until(ExpectedConditions.visibilityOf(message));
+        element.clear();
+        element.sendKeys(messageText);
     }
 
 
@@ -105,10 +114,10 @@ public class ProductPage {
     // ============================================================
 
     public void enterQuantity(String value) {
-		wait.until(ExpectedConditions.elementToBeClickable(quantity));
+        wait.until(ExpectedConditions.elementToBeClickable(quantity));
         quantity.clear();
         quantity.sendKeys(value);
-        wait.until(ExpectedConditions.attributeToBe(quantity,"value",value));
+        wait.until(ExpectedConditions.attributeToBe(quantity, "value", value));
     }
 
 
@@ -117,10 +126,10 @@ public class ProductPage {
     // ============================================================
 
     public void clickAddToCart() {
-        addToCartButton.click();
+        wait.until(ExpectedConditions.elementToBeClickable(addToCartButton)).click();
     }
 
     public void clickAddToWishlist() {
-        addToWishlistButton.click();
+        wait.until(ExpectedConditions.elementToBeClickable(addToWishlistButton)).click();
     }
 }

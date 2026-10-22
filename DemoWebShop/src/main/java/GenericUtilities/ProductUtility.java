@@ -1,9 +1,13 @@
 package GenericUtilities;
 
 import java.io.IOException;
+import java.time.Duration;
 
 import org.apache.poi.EncryptedDocumentException;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import ObjectRepo.HomePage;
 import ObjectRepo.ProductPage;
@@ -12,6 +16,7 @@ public class ProductUtility {
 
     private WebDriver driver;
     private ExcelUtility eu;
+    private WebDriverWait wait;
 
     // ============================================================
     // CONSTRUCTOR
@@ -20,6 +25,7 @@ public class ProductUtility {
     public ProductUtility(WebDriver driver) {
         this.driver = driver;
         this.eu = new ExcelUtility();
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
 
     // ============================================================
@@ -88,7 +94,8 @@ public class ProductUtility {
 
         hp.clickSearchedProduct(productName);
 
-        Thread.sleep(2000);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(
+                By.cssSelector("input[id^='addtocart_'][id$='_EnteredQuantity']")));
 
         ProductPage pp =
                 new ProductPage(driver);
@@ -113,7 +120,7 @@ public class ProductUtility {
         // Sender Details
         // --------------------------------------------------------
 
-     // Sender Name - enter only if the field is empty
+        // Sender Name - enter only if the field is empty
         if (pp.getSenderName().trim().isEmpty()) {
             pp.enterSenderName(product[7].toString());
         }

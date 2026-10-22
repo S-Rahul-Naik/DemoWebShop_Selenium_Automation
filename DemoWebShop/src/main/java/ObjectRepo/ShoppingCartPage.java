@@ -1,6 +1,5 @@
 package ObjectRepo;
 
-
 import java.time.Duration;
 
 import org.openqa.selenium.By;
@@ -124,67 +123,43 @@ public class ShoppingCartPage {
     private WebElement checkoutButton;
 
 
-    public boolean isCartEmpty() {
-
-        return driver.findElements(
-                By.cssSelector("input[name='removefromcart']")
-        ).isEmpty();
-    }
-
-
     // ============================================================
     // CART VERIFICATION
     // ============================================================
 
+    public boolean isCartEmpty() {
+        return driver.findElements(By.cssSelector("input[name='removefromcart']")).isEmpty();
+    }
+
     public boolean isCartDisplayed() {
-
         try {
-
-            return wait.until(
-                    ExpectedConditions.visibilityOfElementLocated(
-                            By.cssSelector("table.cart")
-                    )
-            ).isDisplayed();
-
+            return wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("table.cart"))).isDisplayed();
         } catch (org.openqa.selenium.TimeoutException e) {
             return false;
         }
     }
 
     public boolean isShippingDetailsDisplayed() {
-
         try {
-
-            return wait.until(
-                    ExpectedConditions.visibilityOfElementLocated(
-                            By.xpath("//ul[@class=\"shipping-results\"]")
-                    )
-            ).isDisplayed();
-
+            return wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//ul[@class=\"shipping-results\"]"))).isDisplayed();
         } catch (org.openqa.selenium.TimeoutException e) {
             return false;
         }
     }
 
     public String getCartQuantity() {
-
-        return wait.until(
-                ExpectedConditions.visibilityOfElementLocated(
-                        By.cssSelector("span.cart-qty")
-                )
-        ).getText();
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("span.cart-qty"))).getText();
     }
 
     public boolean isProductDisplayed(String expectedProductName) {
-
         String productName = expectedProductName.trim();
+        String xpath = "//table[contains(@class,'cart')]//a[contains(@class,'product-name') and normalize-space()=\"" + productName + "\"]";
 
-        String xpath =
-                "//table[contains(@class,'cart')]" +
-                "//a[contains(@class,'product-name')" +
-                " and normalize-space()=\"" + productName + "\"]";
-
-        return !driver.findElements(By.xpath(xpath)).isEmpty();
+        try {
+            return wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath))).isDisplayed();
+        } catch (org.openqa.selenium.TimeoutException e) {
+            return false;
+        }
     }
 
 
@@ -193,30 +168,15 @@ public class ShoppingCartPage {
     // ============================================================
 
     public String getProductName() {
-
-        return wait.until(
-                ExpectedConditions.visibilityOfElementLocated(
-                        By.cssSelector("a.product-name")
-                )
-        ).getText();
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("a.product-name"))).getText();
     }
 
     public String getProductUnitPrice() {
-
-        return wait.until(
-                ExpectedConditions.visibilityOfElementLocated(
-                        By.cssSelector("span.product-unit-price")
-                )
-        ).getText();
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("span.product-unit-price"))).getText();
     }
 
     public String getProductSubtotal() {
-
-        return wait.until(
-                ExpectedConditions.visibilityOfElementLocated(
-                        By.cssSelector("span.product-subtotal")
-                )
-        ).getText();
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("span.product-subtotal"))).getText();
     }
 
 
@@ -225,45 +185,20 @@ public class ShoppingCartPage {
     // ============================================================
 
     public String getQuantity() {
-
-        return wait.until(
-                ExpectedConditions.visibilityOfElementLocated(
-                        By.cssSelector("input.qty-input")
-                )
-        ).getAttribute("value");
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("input.qty-input"))).getAttribute("value");
     }
 
     public String getQuantity(String expectedProductName) {
-
         String productName = expectedProductName.trim();
 
-        String xpath =
-                "//table[contains(@class,'cart')]//tr["
-                + ".//a[contains(@class,'product-name')"
-                + " and normalize-space()=\"" + productName + "\"]"
-                + "]";
+        String xpath = "//table[contains(@class,'cart')]//tr[.//a[contains(@class,'product-name') and normalize-space()=\"" + productName + "\"]]";
+        By quantityLocator = By.xpath(xpath + "//input[contains(@class,'qty-input')]");
 
-        WebElement productRow =
-                wait.until(
-                        ExpectedConditions.presenceOfElementLocated(
-                                By.xpath(xpath)
-                        )
-                );
-
-        return productRow.findElement(
-                By.cssSelector("input.qty-input")
-        ).getAttribute("value");
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(quantityLocator)).getAttribute("value");
     }
 
     public void enterQuantity(String quantity) {
-
-        WebElement quantityInput =
-                wait.until(
-                        ExpectedConditions.elementToBeClickable(
-                                By.cssSelector("input.qty-input")
-                        )
-                );
-
+        WebElement quantityInput = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("input.qty-input")));
         quantityInput.clear();
         quantityInput.sendKeys(quantity);
     }
@@ -274,15 +209,7 @@ public class ShoppingCartPage {
     // ============================================================
 
     public void selectRemoveProduct() {
-
-        WebElement removeCheckbox =
-                wait.until(
-                        ExpectedConditions.elementToBeClickable(
-                                By.cssSelector(
-                                        "input[name='removefromcart']"
-                                )
-                        )
-                );
+        WebElement removeCheckbox = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("input[name='removefromcart']")));
 
         if (!removeCheckbox.isSelected()) {
             removeCheckbox.click();
@@ -290,26 +217,13 @@ public class ShoppingCartPage {
     }
 
     public void removeProduct(String expectedProductName) {
-
         String productName = expectedProductName.trim();
 
-        String xpath =
-                "//table[contains(@class,'cart')]//tr["
-                + ".//a[contains(@class,'product-name')"
-                + " and normalize-space()=\"" + productName + "\"]"
-                + "]";
+        String xpath = "//table[contains(@class,'cart')]//tr[.//a[contains(@class,'product-name') and normalize-space()=\"" + productName + "\"]]";
 
-        WebElement productRow =
-                wait.until(
-                        ExpectedConditions.presenceOfElementLocated(
-                                By.xpath(xpath)
-                        )
-                );
+        WebElement productRow = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(xpath)));
 
-        WebElement removeCheckbox =
-                productRow.findElement(
-                        By.name("removefromcart")
-                );
+        WebElement removeCheckbox = productRow.findElement(By.name("removefromcart"));
 
         if (!removeCheckbox.isSelected()) {
             removeCheckbox.click();
@@ -324,39 +238,14 @@ public class ShoppingCartPage {
     // ============================================================
 
     public void clickUpdateCart() {
-
-        WebElement updateButton =
-                wait.until(
-                        ExpectedConditions.elementToBeClickable(
-                                By.cssSelector(
-                                        "input.update-cart-button"
-                                )
-                        )
-                );
+        WebElement updateButton = wait.until(ExpectedConditions.elementToBeClickable(
+                By.cssSelector("input.update-cart-button")));
 
         updateButton.click();
-
-        wait.until(
-                ExpectedConditions.or(
-                        ExpectedConditions.visibilityOfElementLocated(
-                                By.cssSelector("table.cart")
-                        ),
-                        ExpectedConditions.invisibilityOfElementLocated(
-                                By.cssSelector("table.cart")
-                        )
-                )
-        );
     }
 
     public void clickContinueShopping() {
-
-        wait.until(
-                ExpectedConditions.elementToBeClickable(
-                        By.cssSelector(
-                                "input.continue-shopping-button"
-                        )
-                )
-        ).click();
+        wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("input.continue-shopping-button"))).click();
     }
 
 
@@ -365,29 +254,13 @@ public class ShoppingCartPage {
     // ============================================================
 
     public void enterDiscountCoupon(String couponCode) {
-
-        WebElement coupon =
-                wait.until(
-                        ExpectedConditions.elementToBeClickable(
-                                By.cssSelector(
-                                        "input.discount-coupon-code"
-                                )
-                        )
-                );
-
+        WebElement coupon = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("input.discount-coupon-code")));
         coupon.clear();
         coupon.sendKeys(couponCode);
     }
 
     public void clickApplyCoupon() {
-
-        wait.until(
-                ExpectedConditions.elementToBeClickable(
-                        By.cssSelector(
-                                "input.apply-discount-coupon-code-button"
-                        )
-                )
-        ).click();
+        wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("input.apply-discount-coupon-code-button"))).click();
     }
 
 
@@ -396,29 +269,13 @@ public class ShoppingCartPage {
     // ============================================================
 
     public void enterGiftCardCode(String giftCardCode) {
-
-        WebElement giftCard =
-                wait.until(
-                        ExpectedConditions.elementToBeClickable(
-                                By.cssSelector(
-                                        "input.gift-card-coupon-code"
-                                )
-                        )
-                );
-
+        WebElement giftCard = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("input.gift-card-coupon-code")));
         giftCard.clear();
         giftCard.sendKeys(giftCardCode);
     }
 
     public void clickAddGiftCard() {
-
-        wait.until(
-                ExpectedConditions.elementToBeClickable(
-                        By.cssSelector(
-                                "input.apply-gift-card-coupon-code-button"
-                        )
-                )
-        ).click();
+        wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("input.apply-gift-card-coupon-code-button"))).click();
     }
 
 
@@ -427,57 +284,25 @@ public class ShoppingCartPage {
     // ============================================================
 
     public void selectCountry(String country) {
-
-        WebElement countryElement =
-                wait.until(
-                        ExpectedConditions.visibilityOfElementLocated(
-                                By.id("CountryId")
-                        )
-                );
-
-        Select select =
-                new Select(countryElement);
-
+        WebElement countryElement = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("CountryId")));
+        Select select = new Select(countryElement);
         select.selectByVisibleText(country);
     }
 
     public void selectState(String state) {
-
-        WebElement stateElement =
-                wait.until(
-                        ExpectedConditions.visibilityOfElementLocated(
-                                By.id("StateProvinceId")
-                        )
-                );
-
-        Select select =
-                new Select(stateElement);
-
+        WebElement stateElement = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("StateProvinceId")));
+        Select select = new Select(stateElement);
         select.selectByVisibleText(state);
     }
 
     public void enterZipCode(String zipCode) {
-
-        WebElement zip =
-                wait.until(
-                        ExpectedConditions.elementToBeClickable(
-                                By.id("ZipPostalCode")
-                        )
-                );
-
+        WebElement zip = wait.until(ExpectedConditions.elementToBeClickable(By.id("ZipPostalCode")));
         zip.clear();
         zip.sendKeys(zipCode);
     }
 
     public void clickEstimateShipping() {
-
-        wait.until(
-                ExpectedConditions.elementToBeClickable(
-                        By.cssSelector(
-                                "input.estimate-shipping-button"
-                        )
-                )
-        ).click();
+        wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("input.estimate-shipping-button"))).click();
     }
 
 
@@ -486,24 +311,11 @@ public class ShoppingCartPage {
     // ============================================================
 
     public String getOrderTotal() {
-
-        return wait.until(
-                ExpectedConditions.visibilityOfElementLocated(
-                        By.cssSelector(
-                                "span.product-price.order-total strong"
-                        )
-                )
-        ).getText();
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("span.product-price.order-total strong"))).getText();
     }
 
     public void selectTermsOfService() {
-
-        WebElement terms =
-                wait.until(
-                        ExpectedConditions.elementToBeClickable(
-                                By.id("termsofservice")
-                        )
-                );
+        WebElement terms = wait.until(ExpectedConditions.elementToBeClickable(By.id("termsofservice")));
 
         if (!terms.isSelected()) {
             terms.click();
@@ -511,13 +323,7 @@ public class ShoppingCartPage {
     }
 
     public void deselectTermsOfService() {
-
-        WebElement terms =
-                wait.until(
-                        ExpectedConditions.elementToBeClickable(
-                                By.id("termsofservice")
-                        )
-                );
+        WebElement terms = wait.until(ExpectedConditions.elementToBeClickable(By.id("termsofservice")));
 
         if (terms.isSelected()) {
             terms.click();
@@ -525,20 +331,10 @@ public class ShoppingCartPage {
     }
 
     public boolean isTermsOfServiceSelected() {
-
-        return wait.until(
-                ExpectedConditions.visibilityOfElementLocated(
-                        By.id("termsofservice")
-                )
-        ).isSelected();
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("termsofservice"))).isSelected();
     }
 
     public void clickCheckout() {
-
-        wait.until(
-                ExpectedConditions.elementToBeClickable(
-                        By.id("checkout")
-                )
-        ).click();
+        wait.until(ExpectedConditions.elementToBeClickable(By.id("checkout"))).click();
     }
 }

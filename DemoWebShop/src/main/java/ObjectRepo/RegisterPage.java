@@ -1,17 +1,25 @@
 package ObjectRepo;
 
+import java.time.Duration;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class RegisterPage {
+
+    private WebDriverWait wait;
+
 
     // ============================================================
     // CONSTRUCTOR
     // ============================================================
 
     public RegisterPage(WebDriver driver) {
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         PageFactory.initElements(driver, this);
     }
 
@@ -73,35 +81,41 @@ public class RegisterPage {
     // ============================================================
 
     public void selectMale() {
-        maleRadioButton.click();
+        wait.until(ExpectedConditions.elementToBeClickable(maleRadioButton)).click();
     }
 
     public void selectFemale() {
-        femaleRadioButton.click();
+        wait.until(ExpectedConditions.elementToBeClickable(femaleRadioButton)).click();
     }
+
 
     // ============================================================
     // REGISTRATION FIELD METHODS
     // ============================================================
 
     public void enterFirstName(String firstName) {
-        firstNameField.sendKeys(firstName);
+        wait.until(ExpectedConditions.visibilityOf(firstNameField)).clear();
+        wait.until(ExpectedConditions.visibilityOf(firstNameField)).sendKeys(firstName);
     }
 
     public void enterLastName(String lastName) {
-        lastNameField.sendKeys(lastName);
+        wait.until(ExpectedConditions.visibilityOf(lastNameField)).clear();
+        wait.until(ExpectedConditions.visibilityOf(lastNameField)).sendKeys(lastName);
     }
 
     public void enterEmail(String email) {
-        emailField.sendKeys(email);
+        wait.until(ExpectedConditions.visibilityOf(emailField)).clear();
+        wait.until(ExpectedConditions.visibilityOf(emailField)).sendKeys(email);
     }
 
     public void enterPassword(String password) {
-        passwordField.sendKeys(password);
+        wait.until(ExpectedConditions.visibilityOf(passwordField)).clear();
+        wait.until(ExpectedConditions.visibilityOf(passwordField)).sendKeys(password);
     }
 
     public void enterConfirmPassword(String confirmPassword) {
-        confirmPasswordField.sendKeys(confirmPassword);
+        wait.until(ExpectedConditions.visibilityOf(confirmPasswordField)).clear();
+        wait.until(ExpectedConditions.visibilityOf(confirmPasswordField)).sendKeys(confirmPassword);
     }
 
 
@@ -110,7 +124,7 @@ public class RegisterPage {
     // ============================================================
 
     public void clickRegister() {
-        registerButton.click();
+        wait.until(ExpectedConditions.elementToBeClickable(registerButton)).click();
     }
 
 
@@ -119,27 +133,27 @@ public class RegisterPage {
     // ============================================================
 
     public String getRegistrationErrorMessage() {
-        return registrationErrorMessage.getText();
+        return wait.until(ExpectedConditions.visibilityOf(registrationErrorMessage)).getText();
     }
 
     public String getFirstNameErrorMessage() {
-        return firstNameErrorMessage.getText();
+        return wait.until(ExpectedConditions.visibilityOf(firstNameErrorMessage)).getText();
     }
 
     public String getLastNameErrorMessage() {
-        return lastNameErrorMessage.getText();
+        return wait.until(ExpectedConditions.visibilityOf(lastNameErrorMessage)).getText();
     }
 
     public String getEmailErrorMessage() {
-        return emailErrorMessage.getText();
+        return wait.until(ExpectedConditions.visibilityOf(emailErrorMessage)).getText();
     }
 
     public String getPasswordErrorMessage() {
-        return passwordErrorMessage.getText();
+        return wait.until(ExpectedConditions.visibilityOf(passwordErrorMessage)).getText();
     }
 
     public String getConfirmPasswordErrorMessage() {
-        return confirmPasswordErrorMessage.getText();
+        return wait.until(ExpectedConditions.visibilityOf(confirmPasswordErrorMessage)).getText();
     }
 
 
@@ -154,12 +168,16 @@ public class RegisterPage {
             String password,
             String confirmPassword) {
 
-        firstNameField.sendKeys(firstName);
-        lastNameField.sendKeys(lastName);
-        emailField.sendKeys(email);
-        passwordField.sendKeys(password);
-        confirmPasswordField.sendKeys(confirmPassword);
-
-        registerButton.click();
+        wait.until(ExpectedConditions.visibilityOf(firstNameField)).clear();
+        wait.until(ExpectedConditions.visibilityOf(firstNameField)).sendKeys(firstName);
+        wait.until(ExpectedConditions.visibilityOf(lastNameField)).clear();
+        wait.until(ExpectedConditions.visibilityOf(lastNameField)).sendKeys(lastName);
+        wait.until(ExpectedConditions.visibilityOf(emailField)).clear();
+        wait.until(ExpectedConditions.visibilityOf(emailField)).sendKeys(email);
+        wait.until(ExpectedConditions.visibilityOf(passwordField)).clear();
+        wait.until(ExpectedConditions.visibilityOf(passwordField)).sendKeys(password);
+        wait.until(ExpectedConditions.visibilityOf(confirmPasswordField)).clear();
+        wait.until(ExpectedConditions.visibilityOf(confirmPasswordField)).sendKeys(confirmPassword);
+        wait.until(ExpectedConditions.elementToBeClickable(registerButton)).click();
     }
 }

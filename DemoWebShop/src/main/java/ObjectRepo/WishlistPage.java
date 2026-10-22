@@ -1,16 +1,19 @@
 package ObjectRepo;
 
-import java.util.List;
+import java.time.Duration;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class WishlistPage {
 
     private WebDriver driver;
+    private WebDriverWait wait;
 
     // ============================================================
     // CONSTRUCTOR
@@ -18,6 +21,7 @@ public class WishlistPage {
 
     public WishlistPage(WebDriver driver) {
         this.driver = driver;
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         PageFactory.initElements(driver, this);
     }
 
@@ -72,7 +76,11 @@ public class WishlistPage {
     // ============================================================
 
     public boolean isWishlistDisplayed() {
-        return wishlistTable.isDisplayed();
+        try {
+            return wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("table.cart"))).isDisplayed();
+        } catch (org.openqa.selenium.TimeoutException e) {
+            return false;
+        }
     }
 
 
@@ -84,22 +92,9 @@ public class WishlistPage {
 
         String productName = expectedProductName.trim();
 
-        String xpath =
-                "//table[contains(@class,'cart')]//tr[" +
-                ".//td[contains(@class,'product')]//a[" +
-                "normalize-space()=\"" + productName + "\"]" +
-                "]";
+        String xpath = "//table[contains(@class,'cart')]//tr[.//td[contains(@class,'product')]//a[normalize-space()=\"" + productName + "\"]]";
 
-        List<WebElement> rows =
-                driver.findElements(By.xpath(xpath));
-
-        if (rows.isEmpty()) {
-            throw new IllegalArgumentException(
-                    "Product not found in Wishlist: " + productName
-            );
-        }
-
-        return rows.get(0);
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
     }
 
 
@@ -111,12 +106,13 @@ public class WishlistPage {
 
         String productName = expectedProductName.trim();
 
-        String xpath =
-                "//table[contains(@class,'cart')]" +
-                "//td[contains(@class,'product')]//a[" +
-                "normalize-space()=\"" + productName + "\"]";
+        String xpath = "//table[contains(@class,'cart')]//td[contains(@class,'product')]//a[normalize-space()=\"" + productName + "\"]";
 
-        return !driver.findElements(By.xpath(xpath)).isEmpty();
+        try {
+            return wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath))).isDisplayed();
+        } catch (org.openqa.selenium.TimeoutException e) {
+            return false;
+        }
     }
 
     public boolean isProductNotDisplayed(String expectedProductName) {
@@ -130,29 +126,29 @@ public class WishlistPage {
 
     public String getProductName(String expectedProductName) {
 
-        WebElement row = getProductRow(expectedProductName);
+        String productName = expectedProductName.trim();
 
-        return row.findElement(
-                By.cssSelector("td.product a")
-        ).getText().trim();
+        String xpath = "//table[contains(@class,'cart')]//tr[.//td[contains(@class,'product')]//a[normalize-space()=\"" + productName + "\"]]//td[contains(@class,'product')]//a";
+
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath))).getText().trim();
     }
 
     public String getProductUnitPrice(String expectedProductName) {
 
-        WebElement row = getProductRow(expectedProductName);
+        String productName = expectedProductName.trim();
 
-        return row.findElement(
-                By.cssSelector("span.product-unit-price")
-        ).getText().trim();
+        String xpath = "//table[contains(@class,'cart')]//tr[.//td[contains(@class,'product')]//a[normalize-space()=\"" + productName + "\"]]//span[contains(@class,'product-unit-price')]";
+
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath))).getText().trim();
     }
 
     public String getProductSubtotal(String expectedProductName) {
 
-        WebElement row = getProductRow(expectedProductName);
+        String productName = expectedProductName.trim();
 
-        return row.findElement(
-                By.cssSelector("span.product-subtotal")
-        ).getText().trim();
+        String xpath = "//table[contains(@class,'cart')]//tr[.//td[contains(@class,'product')]//a[normalize-space()=\"" + productName + "\"]]//span[contains(@class,'product-subtotal')]";
+
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath))).getText().trim();
     }
 
 
@@ -162,36 +158,34 @@ public class WishlistPage {
 
     public String getQuantity(String expectedProductName) {
 
-        WebElement row = getProductRow(expectedProductName);
+        String productName = expectedProductName.trim();
 
-        return row.findElement(
-                By.cssSelector("input.qty-input")
-        ).getAttribute("value");
+        String xpath = "//table[contains(@class,'cart')]//tr[.//td[contains(@class,'product')]//a[normalize-space()=\"" + productName + "\"]]//input[contains(@class,'qty-input')]";
+
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath))).getAttribute("value");
     }
 
-    public boolean isQuantityFieldDisplayed(
-            String expectedProductName) {
+    public boolean isQuantityFieldDisplayed(String expectedProductName) {
 
-        WebElement row = getProductRow(expectedProductName);
+        String productName = expectedProductName.trim();
 
-        return row.findElement(
-                By.cssSelector("input.qty-input")
-        ).isDisplayed();
+        String xpath = "//table[contains(@class,'cart')]//tr[.//td[contains(@class,'product')]//a[normalize-space()=\"" + productName + "\"]]//input[contains(@class,'qty-input')]";
+
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath))).isDisplayed();
     }
 
-    public void enterQuantity(
-            String expectedProductName,
-            String quantity) {
+    public void enterQuantity(String expectedProductName, String quantity) {
 
-        WebElement row = getProductRow(expectedProductName);
+        String productName = expectedProductName.trim();
 
-        WebElement quantityField =
-                row.findElement(
-                        By.cssSelector("input.qty-input")
-                );
+        String xpath = "//table[contains(@class,'cart')]//tr[.//td[contains(@class,'product')]//a[normalize-space()=\"" + productName + "\"]]//input[contains(@class,'qty-input')]";
+
+        WebElement quantityField = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(xpath)));
 
         quantityField.clear();
         quantityField.sendKeys(quantity);
+
+        wait.until(ExpectedConditions.attributeToBe(quantityField, "value", quantity));
     }
 
 
@@ -201,10 +195,11 @@ public class WishlistPage {
 
     public void selectProduct(String expectedProductName) {
 
-        WebElement row = getProductRow(expectedProductName);
+        String productName = expectedProductName.trim();
 
-        WebElement checkbox =
-                row.findElement(By.name("addtocart"));
+        String xpath = "//table[contains(@class,'cart')]//tr[.//td[contains(@class,'product')]//a[normalize-space()=\"" + productName + "\"]]//input[@name='addtocart']";
+
+        WebElement checkbox = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(xpath)));
 
         if (!checkbox.isSelected()) {
             checkbox.click();
@@ -213,10 +208,11 @@ public class WishlistPage {
 
     public void selectRemoveProduct(String expectedProductName) {
 
-        WebElement row = getProductRow(expectedProductName);
+        String productName = expectedProductName.trim();
 
-        WebElement checkbox =
-                row.findElement(By.name("removefromcart"));
+        String xpath = "//table[contains(@class,'cart')]//tr[.//td[contains(@class,'product')]//a[normalize-space()=\"" + productName + "\"]]//input[@name='removefromcart']";
+
+        WebElement checkbox = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(xpath)));
 
         if (!checkbox.isSelected()) {
             checkbox.click();
@@ -229,15 +225,19 @@ public class WishlistPage {
     // ============================================================
 
     public void clickUpdateWishlist() {
-        updateWishlistButton.click();
+        wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("input.update-wishlist-button"))).click();
     }
 
     public void clickAddToCart() {
-        addToCartButton.click();
+        wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("input.wishlist-add-to-cart-button"))).click();
     }
 
     public boolean isAddToCartButtonDisplayed() {
-        return addToCartButton.isDisplayed();
+        try {
+            return wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("input.wishlist-add-to-cart-button"))).isDisplayed();
+        } catch (org.openqa.selenium.TimeoutException e) {
+            return false;
+        }
     }
 
 
@@ -246,33 +246,39 @@ public class WishlistPage {
     // ============================================================
 
     public void clickEmailAFriend() {
-        emailAFriendButton.click();
+        wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("input.email-a-friend-wishlist-button"))).click();
     }
 
     public boolean isFriendEmailFieldDisplayed() {
-        return friendEmail.isDisplayed();
+        try {
+            return wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("FriendEmail"))).isDisplayed();
+        } catch (org.openqa.selenium.TimeoutException e) {
+            return false;
+        }
     }
 
     public void enterFriendEmail(String email) {
-        friendEmail.clear();
-        friendEmail.sendKeys(email);
+        WebElement emailField = wait.until(ExpectedConditions.elementToBeClickable(By.id("FriendEmail")));
+        emailField.clear();
+        emailField.sendKeys(email);
     }
 
     public void enterPersonalMessage(String message) {
-        personalMessage.clear();
-        personalMessage.sendKeys(message);
+        WebElement messageField = wait.until(ExpectedConditions.elementToBeClickable(By.id("PersonalMessage")));
+        messageField.clear();
+        messageField.sendKeys(message);
     }
 
     public void clickSendEmail() {
-        sendEmailButton.click();
+        wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("input.send-email-a-friend-button"))).click();
     }
 
     public String getEmailSuccessMessage() {
-        return emailSuccessMessage.getText().trim();
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div.result"))).getText().trim();
     }
 
     public String getEmailWishlistHeading() {
-        return emailWishlistHeading.getText().trim();
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div.email-a-friend-page h1"))).getText().trim();
     }
 
 
@@ -281,6 +287,6 @@ public class WishlistPage {
     // ============================================================
 
     public String getWishlistShareLink() {
-        return wishlistShareLink.getText().trim();
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("a.share-link"))).getText().trim();
     }
 }

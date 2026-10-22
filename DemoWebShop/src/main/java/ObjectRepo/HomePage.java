@@ -98,6 +98,7 @@ public class HomePage {
     // ============================================================
 
     public void enterProductName(String productName) {
+        wait.until(ExpectedConditions.visibilityOf(searchBox)).clear();
         wait.until(ExpectedConditions.visibilityOf(searchBox)).sendKeys(productName);
     }
 
@@ -105,12 +106,11 @@ public class HomePage {
         wait.until(ExpectedConditions.elementToBeClickable(searchButton)).click();
     }
 
-    public void searchProduct(String productName)
-            throws InterruptedException {
-        wait.until(ExpectedConditions.visibilityOf(searchBox));
-        searchBox.clear();
-        searchBox.sendKeys(productName);
+    public void searchProduct(String productName) {
+        wait.until(ExpectedConditions.visibilityOf(searchBox)).clear();
+        wait.until(ExpectedConditions.visibilityOf(searchBox)).sendKeys(productName);
         wait.until(ExpectedConditions.elementToBeClickable(searchButton)).click();
+        wait.until(ExpectedConditions.urlContains("/search"));
     }
 
 
@@ -118,40 +118,32 @@ public class HomePage {
     // SEARCH RESULT VERIFICATION
     // ============================================================
 
-    public boolean isProductDisplayedInSearchResults(String productName) {
-
-        By productLocator =
-                By.xpath("//h2[@class='product-title']/a[normalize-space()='"
-                        + productName + "']");
+    public boolean isSearchResultsPageDisplayed() {
         try {
-            WebElement product =
-                    wait.until(
-                            ExpectedConditions.visibilityOfElementLocated(
-                                    productLocator
-                            )
-                    );
+            wait.until(ExpectedConditions.urlContains("/search"));
+            return true;
+        } catch (TimeoutException e) {
+            return false;
+        }
+    }
+
+    public boolean isProductDisplayedInSearchResults(String productName) {
+        By productLocator = By.xpath("//h2[@class='product-title']/a[normalize-space()='" + productName + "']");
+        try {
+            WebElement product = wait.until(ExpectedConditions.visibilityOfElementLocated(productLocator));
             return product.isDisplayed();
         } catch (TimeoutException e) {
             return false;
         }
     }
 
+
     // ============================================================
     // SEARCH RESULT PRODUCT
     // ============================================================
 
     public void clickSearchedProduct(String productName) {
-
-        wait.until(
-                ExpectedConditions.elementToBeClickable(
-                        driver.findElement(
-                                By.xpath(
-                                        "//h2[@class='product-title']/a[normalize-space()='"
-                                        + productName
-                                        + "']"
-                                )
-                        )
-                )
-        ).click();
+        By productLocator = By.xpath("//h2[@class='product-title']/a[normalize-space()='" + productName + "']");
+        wait.until(ExpectedConditions.elementToBeClickable(productLocator)).click();
     }
 }

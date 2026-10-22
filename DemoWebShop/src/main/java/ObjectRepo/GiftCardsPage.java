@@ -1,18 +1,28 @@
 package ObjectRepo;
 
+import java.time.Duration;
+
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class GiftCardsPage {
+
+    private WebDriver driver;
+    private WebDriverWait wait;
 
     // ============================================================
     // CONSTRUCTOR
     // ============================================================
 
     public GiftCardsPage(WebDriver driver) {
+        this.driver = driver;
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         PageFactory.initElements(driver, this);
     }
 
@@ -173,13 +183,10 @@ public class GiftCardsPage {
     @FindBy(id = "giftcard_4_RecipientName")
     private WebElement hundredRecipientName;
 
-    @FindBy(id = "giftcard_4_SenderName")
-    private WebElement hundredYourName;
-
     @FindBy(id = "giftcard_4_Message")
     private WebElement hundredMessage;
 
-    @FindBy(id = "addtocart_4_EnteredQuantity")
+    @FindBy(id = "giftcard_4_EnteredQuantity")
     private WebElement hundredQuantity;
 
     @FindBy(id = "add-to-cart-button-4")
@@ -194,63 +201,64 @@ public class GiftCardsPage {
     // ============================================================
 
     public String getPageTitle() {
-        return giftCardsPageTitle.getText();
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div.page.category-page h1"))).getText();
     }
 
     public void selectViewMode(String visibleText) {
-
-        Select select = new Select(viewModeDropdown);
-
+        WebElement dropdown = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("products-viewmode")));
+        Select select = new Select(dropdown);
         select.selectByVisibleText(visibleText);
     }
 
     public void selectSortBy(String visibleText) {
-
-        Select select = new Select(sortByDropdown);
-
+        WebElement dropdown = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("products-orderby")));
+        Select select = new Select(dropdown);
         select.selectByVisibleText(visibleText);
     }
 
     public void selectDisplayPerPage(String visibleText) {
-
-        Select select = new Select(displayPerPageDropdown);
-
+        WebElement dropdown = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("products-pagesize")));
+        Select select = new Select(dropdown);
         select.selectByVisibleText(visibleText);
     }
 
     public String getSelectedViewMode() {
-        Select select = new Select(viewModeDropdown);
+        WebElement dropdown = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("products-viewmode")));
+        Select select = new Select(dropdown);
         return select.getFirstSelectedOption().getText();
     }
-    
+
     public String getSelectedSortBy() {
-        Select select = new Select(sortByDropdown);
+        WebElement dropdown = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("products-orderby")));
+        Select select = new Select(dropdown);
         return select.getFirstSelectedOption().getText();
     }
-    
+
     public String getSelectedDisplayPerPage() {
-        Select select = new Select(displayPerPageDropdown);
+        WebElement dropdown = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("products-pagesize")));
+        Select select = new Select(dropdown);
         return select.getFirstSelectedOption().getText();
     }
+
 
     // ============================================================
     // PRODUCT NAVIGATION
     // ============================================================
 
     public void clickFiveDollarGiftCard() {
-        fiveDollarGiftCard.click();
+        wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("div.product-item[data-productid='1'] h2.product-title a"))).click();
     }
 
     public void clickTwentyFiveDollarGiftCard() {
-        twentyFiveDollarGiftCard.click();
+        wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("div.product-item[data-productid='2'] h2.product-title a"))).click();
     }
 
     public void clickFiftyDollarGiftCard() {
-        fiftyDollarGiftCard.click();
+        wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("div.product-item[data-productid='3'] h2.product-title a"))).click();
     }
 
     public void clickHundredDollarGiftCard() {
-        hundredDollarGiftCard.click();
+        wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("div.product-item[data-productid='4'] h2.product-title a"))).click();
     }
 
 
@@ -259,19 +267,19 @@ public class GiftCardsPage {
     // ============================================================
 
     public String getFiveDollarPrice() {
-        return fiveDollarPrice.getText();
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div.product-item[data-productid='1'] span.actual-price"))).getText();
     }
 
     public String getTwentyFiveDollarPrice() {
-        return twentyFiveDollarPrice.getText();
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div.product-item[data-productid='2'] span.actual-price"))).getText();
     }
 
     public String getFiftyDollarPrice() {
-        return fiftyDollarPrice.getText();
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div.product-item[data-productid='3'] span.actual-price"))).getText();
     }
 
     public String getHundredDollarPrice() {
-        return hundredDollarPrice.getText();
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div.product-item[data-productid='4'] span.actual-price"))).getText();
     }
 
 
@@ -280,19 +288,19 @@ public class GiftCardsPage {
     // ============================================================
 
     public void addFiveDollarGiftCardToCart() {
-        fiveDollarAddToCartButton.click();
+        wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("div.product-item[data-productid='1'] input.product-box-add-to-cart-button"))).click();
     }
 
     public void addTwentyFiveDollarGiftCardToCart() {
-        twentyFiveDollarAddToCartButton.click();
+        wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("div.product-item[data-productid='2'] input.product-box-add-to-cart-button"))).click();
     }
 
     public void addFiftyDollarGiftCardToCart() {
-        fiftyDollarAddToCartButton.click();
+        wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("div.product-item[data-productid='3'] input.product-box-add-to-cart-button"))).click();
     }
 
     public void addHundredDollarGiftCardToCart() {
-        hundredDollarAddToCartButton.click();
+        wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("div.product-item[data-productid='4'] input.product-box-add-to-cart-button"))).click();
     }
 
 
@@ -301,36 +309,38 @@ public class GiftCardsPage {
     // ============================================================
 
     public void enterFiveRecipientName(String name) {
-        fiveRecipientName.sendKeys(name);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("giftcard_1_RecipientName"))).sendKeys(name);
     }
 
     public void enterFiveRecipientEmail(String email) {
-        fiveRecipientEmail.sendKeys(email);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("giftcard_1_RecipientEmail"))).sendKeys(email);
     }
 
     public void enterFiveYourName(String name) {
-        fiveYourName.sendKeys(name);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("giftcard_1_SenderName"))).sendKeys(name);
     }
 
     public void enterFiveYourEmail(String email) {
-        fiveYourEmail.sendKeys(email);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("giftcard_1_SenderEmail"))).sendKeys(email);
     }
 
     public void enterFiveMessage(String messageText) {
-        fiveMessage.sendKeys(messageText);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("giftcard_1_Message"))).sendKeys(messageText);
     }
 
     public void enterFiveQuantity(String quantity) {
-        fiveQuantity.clear();
-        fiveQuantity.sendKeys(quantity);
+        WebElement quantityField = wait.until(ExpectedConditions.elementToBeClickable(By.id("addtocart_1_EnteredQuantity")));
+        quantityField.clear();
+        quantityField.sendKeys(quantity);
+        wait.until(ExpectedConditions.attributeToBe(quantityField, "value", quantity));
     }
 
     public void clickFiveAddToCart() {
-        fiveAddToCart.click();
+        wait.until(ExpectedConditions.elementToBeClickable(By.id("add-to-cart-button-1"))).click();
     }
 
     public void clickFiveAddToWishlist() {
-        fiveAddToWishlist.click();
+        wait.until(ExpectedConditions.elementToBeClickable(By.id("add-to-wishlist-button-1"))).click();
     }
 
     public void fillFiveVirtualGiftCardDetails(
@@ -340,11 +350,11 @@ public class GiftCardsPage {
             String yourEmail,
             String message) {
 
-        fiveRecipientName.sendKeys(recipientName);
-        fiveRecipientEmail.sendKeys(recipientEmail);
-        fiveYourName.sendKeys(yourName);
-        fiveYourEmail.sendKeys(yourEmail);
-        fiveMessage.sendKeys(message);
+        enterFiveRecipientName(recipientName);
+        enterFiveRecipientEmail(recipientEmail);
+        enterFiveYourName(yourName);
+        enterFiveYourEmail(yourEmail);
+        enterFiveMessage(message);
     }
 
 
@@ -353,36 +363,38 @@ public class GiftCardsPage {
     // ============================================================
 
     public void enterTwentyFiveRecipientName(String name) {
-        twentyFiveRecipientName.sendKeys(name);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("giftcard_2_RecipientName"))).sendKeys(name);
     }
 
     public void enterTwentyFiveRecipientEmail(String email) {
-        twentyFiveRecipientEmail.sendKeys(email);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("giftcard_2_RecipientEmail"))).sendKeys(email);
     }
 
     public void enterTwentyFiveYourName(String name) {
-        twentyFiveYourName.sendKeys(name);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("giftcard_2_SenderName"))).sendKeys(name);
     }
 
     public void enterTwentyFiveYourEmail(String email) {
-        twentyFiveYourEmail.sendKeys(email);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("giftcard_2_SenderEmail"))).sendKeys(email);
     }
 
     public void enterTwentyFiveMessage(String messageText) {
-        twentyFiveMessage.sendKeys(messageText);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("giftcard_2_Message"))).sendKeys(messageText);
     }
 
     public void enterTwentyFiveQuantity(String quantity) {
-        twentyFiveQuantity.clear();
-        twentyFiveQuantity.sendKeys(quantity);
+        WebElement quantityField = wait.until(ExpectedConditions.elementToBeClickable(By.id("addtocart_2_EnteredQuantity")));
+        quantityField.clear();
+        quantityField.sendKeys(quantity);
+        wait.until(ExpectedConditions.attributeToBe(quantityField, "value", quantity));
     }
 
     public void clickTwentyFiveAddToCart() {
-        twentyFiveAddToCart.click();
+        wait.until(ExpectedConditions.elementToBeClickable(By.id("add-to-cart-button-2"))).click();
     }
 
     public void clickTwentyFiveAddToWishlist() {
-        twentyFiveAddToWishlist.click();
+        wait.until(ExpectedConditions.elementToBeClickable(By.id("add-to-wishlist-button-2"))).click();
     }
 
     public void fillTwentyFiveVirtualGiftCardDetails(
@@ -392,11 +404,11 @@ public class GiftCardsPage {
             String yourEmail,
             String message) {
 
-        twentyFiveRecipientName.sendKeys(recipientName);
-        twentyFiveRecipientEmail.sendKeys(recipientEmail);
-        twentyFiveYourName.sendKeys(yourName);
-        twentyFiveYourEmail.sendKeys(yourEmail);
-        twentyFiveMessage.sendKeys(message);
+        enterTwentyFiveRecipientName(recipientName);
+        enterTwentyFiveRecipientEmail(recipientEmail);
+        enterTwentyFiveYourName(yourName);
+        enterTwentyFiveYourEmail(yourEmail);
+        enterTwentyFiveMessage(message);
     }
 
 
@@ -405,28 +417,30 @@ public class GiftCardsPage {
     // ============================================================
 
     public void enterFiftyRecipientName(String name) {
-        fiftyRecipientName.sendKeys(name);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("giftcard_3_RecipientName"))).sendKeys(name);
     }
 
     public void enterFiftyYourName(String name) {
-        fiftyYourName.sendKeys(name);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("giftcard_3_SenderName"))).sendKeys(name);
     }
 
     public void enterFiftyMessage(String messageText) {
-        fiftyMessage.sendKeys(messageText);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("giftcard_3_Message"))).sendKeys(messageText);
     }
 
     public void enterFiftyQuantity(String quantity) {
-        fiftyQuantity.clear();
-        fiftyQuantity.sendKeys(quantity);
+        WebElement quantityField = wait.until(ExpectedConditions.elementToBeClickable(By.id("addtocart_3_EnteredQuantity")));
+        quantityField.clear();
+        quantityField.sendKeys(quantity);
+        wait.until(ExpectedConditions.attributeToBe(quantityField, "value", quantity));
     }
 
     public void clickFiftyAddToCart() {
-        fiftyAddToCart.click();
+        wait.until(ExpectedConditions.elementToBeClickable(By.id("add-to-cart-button-3"))).click();
     }
 
     public void clickFiftyAddToWishlist() {
-        fiftyAddToWishlist.click();
+        wait.until(ExpectedConditions.elementToBeClickable(By.id("add-to-wishlist-button-3"))).click();
     }
 
     public void fillFiftyPhysicalGiftCardDetails(
@@ -434,9 +448,9 @@ public class GiftCardsPage {
             String yourName,
             String message) {
 
-        fiftyRecipientName.sendKeys(recipientName);
-        fiftyYourName.sendKeys(yourName);
-        fiftyMessage.sendKeys(message);
+        enterFiftyRecipientName(recipientName);
+        enterFiftyYourName(yourName);
+        enterFiftyMessage(message);
     }
 
 
@@ -445,28 +459,30 @@ public class GiftCardsPage {
     // ============================================================
 
     public void enterHundredRecipientName(String name) {
-        hundredRecipientName.sendKeys(name);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("giftcard_4_RecipientName"))).sendKeys(name);
     }
 
     public void enterHundredYourName(String name) {
-        hundredYourName.sendKeys(name);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("giftcard_4_Message"))).sendKeys(name);
     }
 
     public void enterHundredMessage(String messageText) {
-        hundredMessage.sendKeys(messageText);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("giftcard_4_Message"))).sendKeys(messageText);
     }
 
     public void enterHundredQuantity(String quantity) {
-        hundredQuantity.clear();
-        hundredQuantity.sendKeys(quantity);
+        WebElement quantityField = wait.until(ExpectedConditions.elementToBeClickable(By.id("addtocart_4_EnteredQuantity")));
+        quantityField.clear();
+        quantityField.sendKeys(quantity);
+        wait.until(ExpectedConditions.attributeToBe(quantityField, "value", quantity));
     }
 
     public void clickHundredAddToCart() {
-        hundredAddToCart.click();
+        wait.until(ExpectedConditions.elementToBeClickable(By.id("add-to-cart-button-4"))).click();
     }
 
     public void clickHundredAddToWishlist() {
-        hundredAddToWishlist.click();
+        wait.until(ExpectedConditions.elementToBeClickable(By.id("add-to-wishlist-button-4"))).click();
     }
 
     public void fillHundredPhysicalGiftCardDetails(
@@ -474,8 +490,8 @@ public class GiftCardsPage {
             String yourName,
             String message) {
 
-        hundredRecipientName.sendKeys(recipientName);
-        hundredYourName.sendKeys(yourName);
-        hundredMessage.sendKeys(message);
+        enterHundredRecipientName(recipientName);
+        enterHundredYourName(yourName);
+        enterHundredMessage(message);
     }
 }

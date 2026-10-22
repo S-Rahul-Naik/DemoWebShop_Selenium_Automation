@@ -1,17 +1,25 @@
 package ObjectRepo;
 
+import java.time.Duration;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class LoginPage {
+
+    private WebDriverWait wait;
+
 
     // ============================================================
     // CONSTRUCTOR
     // ============================================================
 
     public LoginPage(WebDriver driver) {
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         PageFactory.initElements(driver, this);
     }
 
@@ -58,27 +66,27 @@ public class LoginPage {
     // ============================================================
 
     public boolean isEmailFieldDisplayed() {
-        return emailField.isDisplayed();
+        return wait.until(ExpectedConditions.visibilityOf(emailField)).isDisplayed();
     }
 
     public boolean isPasswordFieldDisplayed() {
-        return passwordField.isDisplayed();
+        return wait.until(ExpectedConditions.visibilityOf(passwordField)).isDisplayed();
     }
 
     public boolean isRememberMeDisplayed() {
-        return rememberMeCheckbox.isDisplayed();
+        return wait.until(ExpectedConditions.visibilityOf(rememberMeCheckbox)).isDisplayed();
     }
 
     public boolean isForgotPasswordDisplayed() {
-        return forgotPasswordLink.isDisplayed();
+        return wait.until(ExpectedConditions.visibilityOf(forgotPasswordLink)).isDisplayed();
     }
 
     public boolean isLoginButtonDisplayed() {
-        return loginButton.isDisplayed();
+        return wait.until(ExpectedConditions.visibilityOf(loginButton)).isDisplayed();
     }
 
     public boolean isRememberMeSelected() {
-        return rememberMeCheckbox.isSelected();
+        return wait.until(ExpectedConditions.visibilityOf(rememberMeCheckbox)).isSelected();
     }
 
 
@@ -87,11 +95,13 @@ public class LoginPage {
     // ============================================================
 
     public void enterEmail(String email) {
-        emailField.sendKeys(email);
+        wait.until(ExpectedConditions.visibilityOf(emailField)).clear();
+        wait.until(ExpectedConditions.visibilityOf(emailField)).sendKeys(email);
     }
 
     public void enterPassword(String password) {
-        passwordField.sendKeys(password);
+        wait.until(ExpectedConditions.visibilityOf(passwordField)).clear();
+        wait.until(ExpectedConditions.visibilityOf(passwordField)).sendKeys(password);
     }
 
 
@@ -100,14 +110,16 @@ public class LoginPage {
     // ============================================================
 
     public void selectRememberMe() {
-        if (!rememberMeCheckbox.isSelected()) {
-            rememberMeCheckbox.click();
+        WebElement checkbox = wait.until(ExpectedConditions.elementToBeClickable(rememberMeCheckbox));
+        if (!checkbox.isSelected()) {
+            checkbox.click();
         }
     }
 
     public void deselectRememberMe() {
-        if (rememberMeCheckbox.isSelected()) {
-            rememberMeCheckbox.click();
+        WebElement checkbox = wait.until(ExpectedConditions.elementToBeClickable(rememberMeCheckbox));
+        if (checkbox.isSelected()) {
+            checkbox.click();
         }
     }
 
@@ -117,11 +129,11 @@ public class LoginPage {
     // ============================================================
 
     public void clickForgotPassword() {
-        forgotPasswordLink.click();
+        wait.until(ExpectedConditions.elementToBeClickable(forgotPasswordLink)).click();
     }
 
     public void clickLogin() {
-        loginButton.click();
+        wait.until(ExpectedConditions.elementToBeClickable(loginButton)).click();
     }
 
 
@@ -130,15 +142,15 @@ public class LoginPage {
     // ============================================================
 
     public String getLoginErrorSummary() {
-        return loginErrorSummary.getText();
+        return wait.until(ExpectedConditions.visibilityOf(loginErrorSummary)).getText();
     }
 
     public String getLoginErrorDetail() {
-        return loginErrorDetail.getText();
+        return wait.until(ExpectedConditions.visibilityOf(loginErrorDetail)).getText();
     }
 
     public String getEmailErrorMessage() {
-        return emailErrorMessage.getText();
+        return wait.until(ExpectedConditions.visibilityOf(emailErrorMessage)).getText();
     }
 
 
@@ -147,7 +159,7 @@ public class LoginPage {
     // ============================================================
 
     public String getPasswordRecoveryTitle() {
-        return passwordRecoveryTitle.getText();
+        return wait.until(ExpectedConditions.visibilityOf(passwordRecoveryTitle)).getText();
     }
 
 
@@ -156,9 +168,10 @@ public class LoginPage {
     // ============================================================
 
     public void login(String email, String password) {
-
-        emailField.sendKeys(email);
-        passwordField.sendKeys(password);
-        loginButton.click();
+        wait.until(ExpectedConditions.visibilityOf(emailField)).clear();
+        wait.until(ExpectedConditions.visibilityOf(emailField)).sendKeys(email);
+        wait.until(ExpectedConditions.visibilityOf(passwordField)).clear();
+        wait.until(ExpectedConditions.visibilityOf(passwordField)).sendKeys(password);
+        wait.until(ExpectedConditions.elementToBeClickable(loginButton)).click();
     }
 }

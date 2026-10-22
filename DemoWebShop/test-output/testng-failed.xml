@@ -5,11 +5,23 @@
     <classes>
       <class name="Ecom.DemoWebShop.ShoppingCart.ShoppingCartTestCase">
         <methods>
+          <include name="verifyInvalidDiscountCoupon"/>
           <include name="navigateToApp"/>
+          <include name="verifyProductDetails"/>
           <include name="bt"/>
-          <include name="closeBrowser"/>
-          <include name="verifyBasicShoppingCartFunctionality" invocation-numbers="0"/>
+          <include name="verifyProductCanBeRemoved"/>
+          <include name="verifyQuantityCanBeUpdated"/>
           <include name="dbConnection"/>
+          <include name="verifyShoppingCartToCheckout"/>
+          <include name="verifyContinueShopping"/>
+          <include name="verifyInvalidQuantity"/>
+          <include name="verifyShippingEstimation"/>
+          <include name="closeBrowser"/>
+          <include name="verifyQuantityBoundaryValues"/>
+          <include name="verifyTermsAndCheckout"/>
+          <include name="verifyInvalidGiftCard"/>
+          <include name="verifyCompleteShoppingCartWorkflow"/>
+          <include name="verifyShoppingCartRegression"/>
         </methods>
       </class> <!-- Ecom.DemoWebShop.ShoppingCart.ShoppingCartTestCase -->
     </classes>
