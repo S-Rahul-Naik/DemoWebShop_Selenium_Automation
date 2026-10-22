@@ -3,6 +3,7 @@ package ObjectRepo;
 import java.time.Duration;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -128,8 +129,22 @@ public class ShoppingCartPage {
     // ============================================================
 
     public boolean isCartEmpty() {
-        return driver.findElements(By.cssSelector("input[name='removefromcart']")).isEmpty();
+
+        By removeProductLocator =
+                By.cssSelector("input[name='removefromcart']");
+
+        try {
+            wait.until(
+                    ExpectedConditions.presenceOfElementLocated(removeProductLocator)
+            );
+
+            return false;
+
+        } catch (TimeoutException e) {
+            return true;
+        }
     }
+    
 
     public boolean isCartDisplayed() {
         try {
@@ -238,10 +253,19 @@ public class ShoppingCartPage {
     // ============================================================
 
     public void clickUpdateCart() {
-        WebElement updateButton = wait.until(ExpectedConditions.elementToBeClickable(
-                By.cssSelector("input.update-cart-button")));
+
+        WebElement cartTableBeforeUpdate = wait.until(
+                ExpectedConditions.visibilityOfElementLocated(
+                        By.cssSelector("table.cart")));
+
+        WebElement updateButton = wait.until(
+                ExpectedConditions.elementToBeClickable(
+                        By.cssSelector("input.update-cart-button")));
 
         updateButton.click();
+
+        wait.until(
+                ExpectedConditions.stalenessOf(cartTableBeforeUpdate));
     }
 
     public void clickContinueShopping() {
